@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"><g><g>
+	<g>
+		<path d="M452,68H60C26.916,68,0,94.916,0,128v256c0,33.084,26.916,60,60,60h392c33.084,0,60-26.916,60-60V128    C512,94.916,485.084,68,452,68z M472,384c0,11.028-8.972,20-20,20H60c-11.028,0-20-8.972-20-20V128c0-11.028,8.972-20,20-20h392    c11.028,0,20,8.972,20,20V384z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#5788EF"/>
+	</g>
+</g><g>
+	<g>
+		<polygon points="468.604,92.937 256,251.074 43.396,92.937 19.522,125.032 256,300.926 492.478,125.032   " data-original="#000000" class="active-path" data-old_color="#000000" fill="#5788EF"/>
+	</g>
+</g></g> </svg>

@@ -1,0 +1,155 @@
+.homeCont{
+  display:flex;
+  width:100%;
+  .sidebar{
+    height:calc(100vh - 56px);
+    width:300px;
+    background-color:#303346;
+    position:fixed;
+    padding:30px 20px;
+    .mapThumb{
+      padding:20px;
+     text-align:center;
+      p{
+        text-align:center;
+        color:#FFFFFF;
+        font-size:14px;
+      }
+      margin-bottom:20px;
+    }
+    .occAlert{
+      margin-top:20px;
+      button{
+        margin-bottom:10px;
+        border:3px solid #f80000;
+        border-radius:10px;
+        height:42px;
+        font-size:16px;
+        background-color: #FFFFFF;
+        color:#f80000;
+        width:100%;
+        font-weight: 500;
+        strong{
+          font-weight: 600;
+        }
+      }
+    }
+    .statusBox{
+      background-color: #252935;
+      padding:15px;
+      border-radius:5px;
+    }
+    h4{
+      color:#FFFFFF;
+      font-weight: 500;
+      font-size:18px;
+      margin-bottom:10px;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      padding-bottom:12px;
+    }
+    .status{
+      margin:0px;
+      padding:0px;
+      li{
+        list-style-type: none;
+        margin:10px 15px 10px 0px;
+        a{
+          color:#FFFFFF;
+          font-size:12px;
+          display: flex;
+          align-items: center;
+          line-height:18px;
+          font-weight:300;
+          span{
+            width:15px;
+            height:15px;
+            border-radius:50%;
+            display:inline-block;
+            margin-right:7px;
+            border:2px solid rgba(255,255,255,0.5);
+          }
+          label{
+            flex:1 1;
+          }
+         
+        }
+        a.normal span{ background-color: #1dab24;}
+        a.occurrence span{ background-color: #f80000;}
+        a.inactive span{  background-color: #d6d6d6;}
+        
+      }
+    }
+  }
+  .mainCont{
+    padding:20px 0px 20px 320px;
+    width:100%;
+    h1{
+      font-weight: 600;
+      font-size:24px;
+    }
+    p{
+      margin-top:5px;
+      color:#8C8C8C;
+    }
+    .contBox{
+      width:100%;
+      background-color:#FFFFFF;
+      padding:10px;
+      border-radius:5px;
+      margin-top:10px;
+      min-height:100px;
+      box-shadow:0px 3px 5px rgba(0,0,0,0.1);
+      .largeBtn{
+        height:44px;
+        width:200px;
+        margin-top:20px;
+        border-radius:5px;
+        background-color: #303346;
+        color:#FFFFFF;
+        border:none;
+      }
+      table{
+        width:100%;
+        background-color:#f4f8fb;
+        border-radius: 5px;
+        overflow:hidden;
+        thead{
+          background-color: #4471c4;
+          tr{
+            th{
+              padding:12px 10px;
+              color:#FFFFFF;
+              font-size:14px;
+              font-weight: 500;
+            }
+          }
+        }
+        tbody{
+          tr{
+            td{
+              padding:12px 10px;
+              font-size:14px;
+              font-weight: 400;
+              line-height: 18px;
+              span{
+                width:15px;
+                height:15px;
+                border-radius:50%;
+                display: inline-block;
+              }
+              span.normal{
+                background-color: #1dab24;
+              }
+              span.occurrence{
+                background-color: #f80000;
+              }
+            }
+          }
+          tr:nth-child(odd){
+            background-color: #e6edf3;
+          }
+        }
+      }
+    }
+  }
+}

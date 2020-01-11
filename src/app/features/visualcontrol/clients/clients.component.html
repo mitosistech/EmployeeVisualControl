@@ -1,0 +1,65 @@
+<div class="homeCont">
+  <div class="sidebar">
+    <div class="mapThumb">
+      <img src="./assets/images/mapthumb.png" alt="Thumb"/>
+      <p>Minas Gerais</p>
+    </div>
+    <div class="statusBox">
+      <h4>Status</h4>
+      <ul class="status">
+        <li><a class="normal"><span></span>Normal</a></li>
+        <li><a class="occurrence"><span></span>Occurrence</a></li>
+      </ul>
+    </div>
+
+   
+  </div>
+  <div class="mainCont">
+    <h1>Employee Visual Control</h1>
+    <p>Customers in Minas Gerais</p>
+    <div class="contBox">
+      <table [routerLink]="['/vc/collaborators']">
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th class="text-center">Alers</th>
+            <th>Status</th>
+            <th>Locale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cliente 01</td>
+            <td  class="text-center"><span class="normal"></span></td>
+            <td>Normal</td>
+            <td>Address</td>
+          </tr>
+          <tr>
+            <td>Cliente 02</td>
+            <td  class="text-center"><span class="occurrence"></span></td>
+            <td>Late collaborator <br/>Collaborator did not attend <br/> Collaborator left early</td>
+            <td>Unit BETIN-MG</td>
+          </tr>
+          <tr>
+            <td>Cliente 03</td>
+            <td  class="text-center"><span class="normal"></span></td>
+            <td>Normal</td>
+            <td>Address</td>
+          </tr>
+          <tr>
+            <td>Cliente 04</td>
+            <td  class="text-center"><span class="normal"></span></td>
+            <td>Normal</td>
+            <td>Address</td>
+          </tr>
+          <tr>
+            <td>Cliente 05</td>
+            <td  class="text-center"><span class="normal"></span></td>
+            <td>Normal</td>
+            <td>Address</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

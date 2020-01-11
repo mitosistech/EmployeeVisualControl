@@ -1,0 +1,24 @@
+<div class="authContainer" style="background-image: url('./assets/images/manager.jpg');">
+  <div class="overlay"></div>
+
+  <div  class="authBox">
+    <img src="./assets/images/logo.jpg" width="200" alt="Logo"/>
+    <div class="formCont">
+    <h2>Login</h2>
+
+    <div class="fieldContainer">
+      <input type="text" placeholder="Email Address"/>
+      <img src="./assets/images/svg/mail.svg" width="18" alt="email"/>
+    </div>
+    <div class="fieldContainer">
+      <input type="text" placeholder="Password"/>
+      <img src="./assets/images/svg/key.svg" width="18" alt="email"/>
+    </div>
+    <div class="fieldContainer">
+      <button [routerLink]="['/vc']">LOGIN</button>
+    </div>
+
+    <div class="text-center"><a class="forgetPwd" [routerLink]="['/forgotPassword']">Forget your password?</a></div>
+    </div>
+  </div>
+</div>
