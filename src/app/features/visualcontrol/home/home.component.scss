@@ -4,8 +4,9 @@
   .sidebar{
     height:calc(100vh - 56px);
     width:300px;
+    min-width:250px;
     background-color:#303346;
-    position:fixed;
+    position:relative;
     padding:30px 20px;
     .occAlert{
       margin-top:20px;
@@ -71,7 +72,7 @@
     }
   }
   .mainCont{
-    padding:20px 0px 20px 320px;
+    padding:20px 0px 20px 20px;
     width:100%;
     h1{
       font-weight: 600;
@@ -79,7 +80,19 @@
     }
     p{
       margin-top:5px;
-      color:#8C8C8C;
+      color:#000000;
+      font-weight: 600;
+      font-style: italic;
+      font-size: 12px;
+      a{
+        color:#4471c4;
+        cursor:pointer;
+        font-weight: 400;
+      }
+      span{
+        color:#8C8C8C;
+        font-weight: 400;
+      }
     }
     .contBox{
       width:100%;
@@ -88,6 +101,51 @@
       border-radius:5px;
       margin-top:10px;
       min-height:300px;
+      h2{
+        font-weight: 500;
+        font-size:18px;
+        margin-bottom:10px;
+        margin-top:10px;
+      }
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .homeCont{
+    flex-direction: column;
+  }
+  .mainCont{
+    padding-left:0px !important;
+  }
+  .sidebar{
+    display: flex;
+    flex-direction: column;
+    width:100% !important;
+    max-height:160px !important;
+    padding:5px !important;
+    .mapThumb{
+      padding:5px !important;
+      img{
+        width:60px;
+      }
+    }
+    .status{
+      display: flex !important;
+    }
+    .statusBox{
+      margin-left:0px;
+    }
+    h4{
+      margin-bottom: 2px !important;
+    }
+  }
+  .occAlert{
+    margin-top:5px !important
+  }
+  .occAlert button{
+    max-width:200px !important;
+    margin-left:10px;
+    margin-right:28px;
   }
 }

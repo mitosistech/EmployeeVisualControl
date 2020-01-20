@@ -5,7 +5,7 @@
     height:calc(100vh - 56px);
     width:300px;
     background-color:#303346;
-    position:fixed;
+    position:relative;
     padding:30px 20px;
     .mapThumb{
       padding:20px;
@@ -81,7 +81,7 @@
     }
   }
   .mainCont{
-    padding:20px 0px 20px 320px;
+    padding:20px 0px 20px 20px;
     width:100%;
     h1{
       font-weight: 600;
@@ -89,16 +89,34 @@
     }
     p{
       margin-top:5px;
-      color:#8C8C8C;
+      color:#000000;
+      font-weight: 600;
+      font-style: italic;
+      font-size: 12px;
+      a{
+        color:#4471c4;
+        cursor:pointer;
+        font-weight: 400;
+      }
+      span{
+        color:#8C8C8C;
+        font-weight: 400;
+      }
     }
     .contBox{
       width:100%;
       background-color:#FFFFFF;
       padding:10px;
       border-radius:5px;
-      margin-top:10px;
+      margin-top:20px;
       min-height:100px;
       box-shadow:0px 3px 5px rgba(0,0,0,0.1);
+      h2{
+        font-weight: 500;
+        font-size:18px;
+        margin-bottom:10px;
+        margin-top:10px;
+      }
       table{
         width:100%;
         background-color:#f4f8fb;
@@ -142,5 +160,41 @@
         }
       }
     }
+  }
+}
+
+
+
+@media only screen and (max-width: 900px) {
+  .homeCont{
+    flex-direction: column;
+  }
+  .mainCont{
+    padding-left:0px !important;
+  }
+  .sidebar{
+    display: flex;
+    flex-direction: row;
+    width:100% !important;
+    max-height:100px !important;
+    padding:5px !important;
+    .mapThumb{
+      padding:5px !important;
+      img{
+        width:60px;
+      }
+    }
+    .status{
+      display: flex !important;
+    }
+    .statusBox{
+      margin-left:30px;
+    }
+    h4{
+      margin-bottom: 2px !important;
+    }
+  }
+  .occAlert button{
+    min-width:200px;
   }
 }

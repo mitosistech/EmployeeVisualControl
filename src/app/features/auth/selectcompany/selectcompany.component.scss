@@ -1,0 +1,79 @@
+.vcContainer{
+  background-color:#f4f8fb;
+  width:100%;
+  min-height: 100vh;
+  .vcHeader{
+    background-color:#FFFFFF;
+    min-height:56px;
+    box-shadow:0px 0px 7px rgba(0,0,0,0.1);
+    padding:5px 20px;
+    display:flex;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    .mLogo{
+      flex:1 1;
+      display: flex;
+      align-items: center;
+    }
+    .hLogo{
+      display: flex;
+      align-items: center;
+    }
+  }
+  .mainContainer{
+    padding:56px 20px 0px 20px;
+    position: relative;
+    width:100%;
+
+    .scContainer{
+      width:100%;
+      min-height: calc(100vh - 56px);
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      .scBox{
+        width:400px;
+        max-width:100%;
+        height:auto;
+        background-color:#FFFFFF;
+        border-radius:5px;
+        box-shadow:0px 2px 5px rgba(0,0,0,0.1);
+        padding:40px 40px;
+        h3{
+          text-align:center;
+          font-size:22px;
+          font-weight: 500;
+        }
+        .selectCompany{
+          margin-top:45px;
+          input{
+            width:100%;
+            border-radius:20px;
+            height:40px;
+            padding:0px 20px;
+            border:2px solid rgba(0,0,0,0.1);
+          }
+          input::placeholder{
+            font-size:14px;
+            color:rgba(0,0,0,0.4);
+          }
+        }
+        button{
+          width: 170px;
+          background-color: #5788ef;
+          border: none;
+          height: 40px;
+          color: #FFFFFF;
+          border-radius: 22px;
+          margin: 20px auto 0px;
+          font-size: 16px;
+          letter-spacing: 1px;
+          font-weight: 500;
+          display: block;
+        }
+      }
+    }
+  }
+
+}
