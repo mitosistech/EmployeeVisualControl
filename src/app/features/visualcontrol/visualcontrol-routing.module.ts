@@ -12,6 +12,7 @@ const routes: Routes = [
     component: VisualcontrolComponent,
     children:[
       {path: '', component:HomeComponent},
+      {path: 'home', component:HomeComponent},
       {path: 'clients', component:ClientsComponent},
       {path: 'collaborators', component:CollaboratorsComponent}
     ]

@@ -20,6 +20,13 @@
       display: flex;
       align-items: center;
     }
+    a.logout{
+      cursor:pointer;
+      img{
+        height:26px;
+        margin-left:20px;
+      }
+    }
   }
   .mainContainer{
     padding:56px 20px 0px 20px;

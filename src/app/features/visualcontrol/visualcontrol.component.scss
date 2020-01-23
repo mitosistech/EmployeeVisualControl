@@ -19,6 +19,13 @@
     .hLogo{
       display: flex;
       align-items: center;
+      a.logout{
+        cursor:pointer;
+        img{
+          height:26px;
+          margin-left:20px;
+        }
+      }
     }
   }
   .mainContainer{

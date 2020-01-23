@@ -1,8 +1,13 @@
 <div class="vcContainer">
   <div class="vcHeader">
     
-    <div class="hLogo">
+    <div class="mLogo">
       <a><img src="./assets/images/logo.jpg" height="44" alt="logo" /></a>
+    </div>
+
+    <div class="hLogo">
+    
+      <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a>
     </div>
   </div>
 
@@ -21,7 +26,7 @@
             <option value="Mahindra">
           </datalist>
         </div>
-        <button>SELECT</button>
+        <button [routerLink]="['/vc']">SELECT</button>
       </div>
     </div>
   </div>
