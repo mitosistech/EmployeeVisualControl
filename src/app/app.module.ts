@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
+import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,11 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule    
+    HttpClientModule ,
+    ToastrModule.forRoot({ positionClass: 'inline' }),
+    ToastContainerModule,
+    BrowserAnimationsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

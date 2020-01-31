@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forgetpassword',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgetpasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: LoginService, public router: Router,private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
+  forgotPassword(data){
+    this.service.verifyMail(null,data).subscribe(res => {
+      let result = JSON.parse(res);
+    });
+  }
 }
