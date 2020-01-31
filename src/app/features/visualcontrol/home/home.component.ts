@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
-
+import { google } from "google-maps";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadMap = () => {
+
     var location = [
       {'name':'AM', 'lat':'-3.117034', 'lon':'-60.025780'},
       {'name':'AC', 'lat':'-9.225730', 'lon':'-70.601231'}
@@ -49,16 +50,14 @@ export class HomeComponent implements OnInit {
       content: contentString
     });
 
-    // marker.addListener("click", function() {
-    //   infowindow.open(map, marker);
-    // });
+  
 
     var marker, i;
     var map = new window["google"].maps.Map(this.mapElement.nativeElement, {
       center: { lat: -3.117034, lng: -60.025780 },
       zoom: 4,
       disableDefaultUI: true,
-      
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: [
         {elementType: 'geometry', stylers: [{color: '#a6c3d7'}]},
         {elementType: 'labels.text.stroke', stylers: [{color: '#a6c3d7'}]},
