@@ -18,7 +18,17 @@
     <p><a [routerLink]="['/selectCompany']">Home</a> > <span>Clients by location</span></p>
     <div class="contBox">
       <h2>Clients by location</h2>
-      <img src="./assets/images/clientsByLocation.png" alt="map"/>
+      <!-- <img src="./assets/images/clientsByLocation.png" alt="map"/> -->
+      <div class="row mt-5">
+          <div class="col-md-9 mx-auto">
+              <h2 class="text-left">Google Map</h2>
+              <div class="card mt-3">
+                  <div class="card-body">
+                      <div #mapRef style="width:100%;height:400px"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>

@@ -16,15 +16,16 @@
       <div class="scBox">
         <h3>Employee Visual Control</h3>
         <div class="selectCompany">
-          <input list="company" placeholder="Select Company">
+          <!-- <input list="company" placeholder="Select Company"> -->
 
-          <datalist id="company">
-            <option value="Mitosis">
-            <option value="Tata">
-            <option value="Cognizant">
-            <option value="Wipro">
-            <option value="Mahindra">
-          </datalist>
+          <!-- <datalist id="company" *ngFor="let company of companyList;">
+
+            <option value="{{company.id}}">{{company.name}}</option>
+           
+          </datalist> -->
+          <select class="select-css">
+              <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
+          </select>
         </div>
         <button [routerLink]="['/vc']">SELECT</button>
       </div>

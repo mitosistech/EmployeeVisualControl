@@ -1,24 +1,28 @@
 <div class="authContainer" style="background-image: url('./assets/images/manager.jpg');">
   <div class="overlay"></div>
 
-  <div  class="authBox">
-    <img src="./assets/images/logo.jpg" width="200" alt="Logo"/>
-    <div class="formCont">
-    <h2>Login</h2>
-
-    <div class="fieldContainer">
-      <input type="text" placeholder="Email Address"/>
-      <img src="./assets/images/svg/mail.svg" width="18" alt="email"/>
-    </div>
-    <div class="fieldContainer">
-      <input type="text" placeholder="Password"/>
-      <img src="./assets/images/svg/key.svg" width="18" alt="email"/>
-    </div>
-    <div class="fieldContainer">
-      <button [routerLink]="['/selectCompany']">LOGIN</button>
-    </div>
-
-    <div class="text-center"><a class="forgetPwd" [routerLink]="['/forgotPassword']">Forget your password?</a></div>
-    </div>
-  </div>
+  <form name="loginForm" (ngSubmit)="login(userModel)">
+      <div  class="authBox">
+          <img src="./assets/images/logo.jpg" width="200" alt="Logo"/>
+          <div class="formCont">
+          <h2>Login</h2>
+      
+          <div class="fieldContainer">
+            <input name="email" type="text" placeholder="Email Address" [(ngModel)]="userModel.userName" required/>
+            <img src="./assets/images/svg/mail.svg" width="18" alt="email"/>
+          </div>
+          <div class="fieldContainer">
+            <input name="password" type="password" placeholder="Password" [(ngModel)]="userModel.password" required/>
+            <img src="./assets/images/svg/key.svg" width="18" alt="email"/>
+          </div>
+          <div class="fieldContainer">
+            <!-- <button [routerLink]="['/selectCompany']" (ng-click)="login()">LOGIN</button> -->
+            <button type="submit">LOGIN</button>
+          </div>
+      
+          <div class="text-center"><a class="forgetPwd" [routerLink]="['/forgotPassword']">Forget your password?</a></div>
+          </div>
+        </div>
+  </form>
+ 
 </div>

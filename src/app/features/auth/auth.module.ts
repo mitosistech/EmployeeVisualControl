@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule, AuthRoutingComponents } from './auth-routing.module';
 import { SelectcompanyComponent } from './selectcompany/selectcompany.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,8 @@ import { SelectcompanyComponent } from './selectcompany/selectcompany.component'
   declarations: [AuthRoutingComponents, SelectcompanyComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FormsModule
   ]
 })
 export class AuthModule { }
