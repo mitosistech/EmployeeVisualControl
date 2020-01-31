@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.renderMap();
   }
-  
   renderMap() {
     window["initMap"] = () => {
       this.loadMap();
@@ -32,14 +31,14 @@ export class HomeComponent implements OnInit {
 
   loadMap = () => {
     var map = new window["google"].maps.Map(this.mapElement.nativeElement, {
-      center: { lat: 13.083333, lng: 80.283333 },
+      center: { lat: 24.5373, lng: 81.3042 },
       zoom: 8
     });
 
     var marker = new window["google"].maps.Marker({
-      position: { lat: 13.083333, lng: 80.283333 },
+      position: { lat: 24.5373, lng: 81.3042 },
       map: map,
-      title: "Compnay state wise",
+      title: "India",
       draggable: true,
       animation: window["google"].maps.Animation.DROP
     });
