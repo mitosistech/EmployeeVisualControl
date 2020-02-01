@@ -1,33 +1,23 @@
 <div class="authContainer" style="background-image: url('./assets/images/manager.jpg');">
   <div class="overlay"></div>
 
-  <form name="loginForm" #userForm="ngForm" (ngSubmit)="login(userModel)">
-    
+  <form name="loginForm" (ngSubmit)="login(userModel)">
       <div  class="authBox">
           <img src="./assets/images/logo.jpg" width="200" alt="Logo"/>
           <div class="formCont">
           <h2>Login</h2>
-         
       
           <div class="fieldContainer">
-            <input name="email" #email="ngModel"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" placeholder="Email Address" [(ngModel)]="userModel.userName" required/>
-            <div *ngIf="email.errors && (email.invalid || email.touched)">
-              <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
-              <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email</small>
-            </div>
+            <input name="email" type="text" placeholder="Email Address" [(ngModel)]="userModel.userName" required/>
             <img src="./assets/images/svg/mail.svg" width="18" alt="email"/>
           </div>
           <div class="fieldContainer">
-            <input name="password" #pwd="ngModel" type="password" placeholder="Password" [(ngModel)]="userModel.password" required pattern="^(?=.*\d).{8,15}$"/>
-            <div *ngIf="pwd.errors && (pwd.invalid || pwd.touched)">
-              <small class="text-danger" *ngIf="pwd.errors.required">Password is required</small>
-              <small class="text-danger" *ngIf="pwd.errors.pattern">Enter valid Password</small>
-            </div>
+            <input name="password" type="password" placeholder="Password" [(ngModel)]="userModel.password" required/>
             <img src="./assets/images/svg/key.svg" width="18" alt="email"/>
           </div>
           <div class="fieldContainer">
             <!-- <button [routerLink]="['/selectCompany']" (ng-click)="login()">LOGIN</button> -->
-            <button type="submit" [disabled]="userForm.form.invalid">LOGIN</button>
+            <button type="submit">LOGIN</button>
           </div>
       
           <div class="text-center"><a class="forgetPwd" [routerLink]="['/forgotPassword']">Forget your password?</a></div>
