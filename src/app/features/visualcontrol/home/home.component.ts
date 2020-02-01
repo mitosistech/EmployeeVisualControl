@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
     this.getListOfLocationByBusinessId(businessId);
-
+    this.renderMap();
   }
 
   routeToClientPage(locationId) {
@@ -28,11 +28,13 @@ export class HomeComponent implements OnInit {
           let location = {
             name: res.data.locations[i].address.stateName,
             lat: res.data.locations[i].address.latitude,
-            lon: res.data.locations[i].address.longitude
+            lon: res.data.locations[i].address.longitude,
+            id: res.data.locations[i].id
           };
           this.locationCoordinates.push(location);
         }
-        this.renderMap();
+
+        this.loadMap();
       }
     });
 
@@ -117,7 +119,7 @@ export class HomeComponent implements OnInit {
       })
       var infowindow = new window["google"].maps.InfoWindow();
 
-      infowindow.setContent("<div><a href='http://localhost:4200/vc/clients/1'>" + this.locationCoordinates[i].name + "</a></div>")
+      infowindow.setContent("<div><a href='http://204.27.60.26:8080/evc/vc/clients/" + this.locationCoordinates[i].id + "'>" + this.locationCoordinates[i].name + "</a></div>")
       infowindow.open(map, marker)
       marker.setVisible(false);
       // google.maps.event.addListener(
