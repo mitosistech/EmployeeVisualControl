@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login(data) {
+    
     if (!data) {
       return;
     }
