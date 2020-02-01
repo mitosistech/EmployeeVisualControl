@@ -10,7 +10,10 @@
     </div>
 
     <div class="occAlert">
-      <button [routerLink]="['/vc/clients']">Occurrence Alert : <strong>MG</strong></button>
+      <div *ngFor="let sta of locationCoordinates">
+        <button *ngIf="sta.status == 2">Occurrence Alert : <br/><strong>{{sta.name}}</strong></button>
+      </div>
+      
     </div>
   </div>
   <div class="mainCont">

@@ -10,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   @ViewChild("mapRef", { static: true }) mapElement: ElementRef;
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
-  private locationCoordinates = [];
+  public locationCoordinates = [];
+  
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
     this.getListOfLocationByBusinessId(businessId);
@@ -24,12 +25,14 @@ export class HomeComponent implements OnInit {
 
     this.service.getLocation(businessId).subscribe(res => {
       if (res.data.locations != null && res.data.locations != null && res.data.locations.length != 0) {
+        
         for (let i = 0; i < res.data.locations.length; i++) {
           let location = {
             name: res.data.locations[i].address.stateName,
             lat: res.data.locations[i].address.latitude,
             lon: res.data.locations[i].address.longitude,
-            id: res.data.locations[i].id
+            id: res.data.locations[i].id,
+            status: res.data.locations[i].status
           };
           this.locationCoordinates.push(location);
         }
@@ -83,8 +86,8 @@ export class HomeComponent implements OnInit {
 
     var marker, i;
     var map = new window["google"].maps.Map(this.mapElement.nativeElement, {
-      center: { lat: -3.117034, lng: -60.025780 },
-      zoom: 4,
+      center: { lat: -23.591311, lng: -46.672307 },
+      zoom: 11,
       disableDefaultUI: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: [
@@ -119,7 +122,10 @@ export class HomeComponent implements OnInit {
       })
       var infowindow = new window["google"].maps.InfoWindow();
 
-      infowindow.setContent("<div><a href='http://204.27.60.26:8080/evc/vc/clients/" + this.locationCoordinates[i].id + "'>" + this.locationCoordinates[i].name + "</a></div>")
+      //  infowindow.setContent("<div><a href='http://204.27.60.26:8080/evc/vc/clients/" + this.locationCoordinates[i].id + "'>" + this.locationCoordinates[i].name + "</a></div>")
+
+      infowindow.setContent("<div class='mapinfowindow'><a style='font-weight:600; color:#000000; ' href='http://204.27.60.26:8080/evc/#/vc/clients/" + this.locationCoordinates[i].id + "'><span style=' width:10px; height:10px; border-radius:50%; margin-right:3px; display:inline-block;' class='status" + this.locationCoordinates[i].status + "'></span>"+ this.locationCoordinates[i].name + "</a></div>")
+
       infowindow.open(map, marker)
       marker.setVisible(false);
       // google.maps.event.addListener(

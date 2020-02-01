@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         if (result.data.superAdmin) {
           this.router.navigate(["/selectCompany"]);
         } else {
-          this.router.navigate(["/vc"]);
+          this.router.navigate(["/vc/home/"+result.data.business_unit_id]);
           // localStorage.setItem("companyName", result.employee_name);
         }
       } else {
