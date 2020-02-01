@@ -17,9 +17,9 @@
   <div class="mainCont">
     <h1>Employee Visual Control</h1>
     <p><a [routerLink]="['/selectCompany']">Home</a> > <a [routerLink]="['/vc/home']">Clients by location</a> >
-      <span>Customers in Minas Gerais</span></p>
+      <span>Customers</span></p>
     <div class="contBox">
-      <h2>Customers in Minas Gerais</h2>
+      <h2>Customers</h2>
       <table [routerLink]="['/vc/collaborators']">
         <thead>
           <tr>
@@ -29,8 +29,8 @@
             <th>Locale</th>
           </tr>
         </thead>
-        <tbody *ngFor="let customer of customerList;">
-          <tr>
+        <tbody >
+          <tr *ngFor="let customer of customerList;">
             <td (click)="routeToCollabratorPage(customer.id)">{{customer.name}}</td>
             <td class="text-center">
               <span class="normal" *ngIf="customer.status=='Normal'"></span>

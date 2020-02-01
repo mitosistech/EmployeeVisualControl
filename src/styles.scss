@@ -126,3 +126,11 @@ table {
 .mapinfowindow .status2{
   background-color:#f80000;
 }
+
+
+table tbody tr{
+  cursor:pointer
+}
+table tbody tr:hover{
+  background-color:#FFFFFF !important;
+}
