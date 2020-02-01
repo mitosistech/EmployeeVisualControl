@@ -10,9 +10,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   public userModel = {};
-  constructor(private service: LoginService, public router: Router,private toastr: ToastrService) {}
+  constructor(private service: LoginService, public router: Router, private toastr: ToastrService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   login(data) {
     if (!data) {
@@ -21,14 +21,14 @@ export class LoginComponent implements OnInit {
     this.service.login(data).subscribe(res => {
       let result = JSON.parse(res);
 
-      if (result != null) {
-        if (result.superAdmin) {
+      if (result.data != null) {
+        if (result.data.superAdmin) {
           this.router.navigate(["/selectCompany"]);
         } else {
           this.router.navigate(["/vc"]);
-          localStorage.setItem("companyName", result.employee_name);
+          // localStorage.setItem("companyName", result.employee_name);
         }
-      }else{
+      } else {
         this.toastr.error('Login failed');
       }
     });

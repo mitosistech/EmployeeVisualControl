@@ -10,11 +10,11 @@ const routes: Routes = [
   {
     path: '',
     component: VisualcontrolComponent,
-    children:[
-      {path: '', component:HomeComponent},
-      {path: 'home', component:HomeComponent},
-      {path: 'clients', component:ClientsComponent},
-      {path: 'collaborators', component:CollaboratorsComponent}
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'home/:businessId', component: HomeComponent },
+      { path: 'clients/:locationId', component: ClientsComponent },
+      { path: 'collaborators/:customerId', component: CollaboratorsComponent }
     ]
   }
 ];

@@ -1,7 +1,7 @@
 <div class="homeCont">
   <div class="sidebar">
     <div class="mapThumb">
-      <img src="./assets/images/mapthumb.png" alt="Thumb"/>
+      <img src="./assets/images/mapthumb.png" alt="Thumb" />
       <p>Minas Gerais</p>
     </div>
     <div class="statusBox">
@@ -13,11 +13,12 @@
       </ul>
     </div>
 
-   
+
   </div>
   <div class="mainCont">
     <h1>Employee Visual Control</h1>
-    <p><a [routerLink]="['/selectCompany']">Home</a> > <a [routerLink]="['/vc/home']">Clients by location</a> > <a [routerLink]="['/vc/clients']">Customers in Minas Gerais</a> > <span>Client 03 | Collaborators</span></p>
+    <p><a [routerLink]="['/selectCompany']">Home</a> > <a [routerLink]="['/vc/home']">Clients by location</a> > <a
+        [routerLink]="['/vc/clients']">Customers in Minas Gerais</a> > <span>Client 03 | Collaborators</span></p>
     <div class="contBox">
       <h2>Client 03 | Collaborators</h2>
       <table>
@@ -30,15 +31,20 @@
             <th>Responsible</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let collaborator of collaboratorsList;">
           <tr>
-            <td>Namo Colborador 01</td>
-            <td  class="text-center"><span class="normal"></span></td>
-            <td>Normal</td>
-            <td>Endereco Unidade</td>
-            <td>Supervisor-(Contato)</td>
+            <td>{{collaborator.name}}</td>
+            <td class="text-center">
+              <span class="normal" *ngIf="collaborator.status=='Normal'"></span>
+              <span class="occurrence" *ngIf="collaborator.status=='Occurrence'"></span>
+              <span class="no-Operation" *ngIf="collaborator.status=='No-Operation'"></span>
+
+            </td>
+            <td>{{collaborator.status}}</td>
+            <td>{{collaborator.address.stateName}}</td>
+            <td>{{collaborator.resonsible}}</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Cliente 02</td>
             <td  class="text-center"><span class="occurrence"></span></td>
             <td>Late collaborator <br/>Collaborator did not attend <br/> Collaborator left early</td>
@@ -59,7 +65,7 @@
             <td>Normal</td>
             <td>Endereco Unidade</td>
             <td>Supervisor-(Contato)</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
 

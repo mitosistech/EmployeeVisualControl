@@ -8,24 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./selectcompany.component.scss']
 })
 export class SelectcompanyComponent implements OnInit {
-public companyList=[];
-  constructor(private service:SelectcompanyService,public router: Router) { }
+  public companyList = [];
+  constructor(private service: SelectcompanyService, public router: Router) { }
 
   ngOnInit() {
     this.getCompanyList();
   }
 
-  getCompanyList(){
+  getCompanyList() {
     this.service.getCompanyList().subscribe(res => {
       console.log(res);
-      this.companyList=res[0].business_units;
-      console.log('this.companyList', this.companyList)
-      //this.router.navigate(["/selectCompany"]);
+      this.companyList = res[0].business_units;
     });
   }
 
-  // moveToClientDetails(data){
+  selectCompany(businessid) {
+    if (businessid) {
+      this.router.navigate(["/vc/home/" + businessid]);
+    }
+  }
 
-  // }
- 
 }

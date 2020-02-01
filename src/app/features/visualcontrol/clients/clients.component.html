@@ -1,7 +1,7 @@
 <div class="homeCont">
   <div class="sidebar">
     <div class="mapThumb">
-      <img src="./assets/images/mapthumb.png" alt="Thumb"/>
+      <img src="./assets/images/mapthumb.png" alt="Thumb" />
       <p>Minas Gerais</p>
     </div>
     <div class="statusBox">
@@ -12,11 +12,12 @@
       </ul>
     </div>
 
-   
+
   </div>
   <div class="mainCont">
     <h1>Employee Visual Control</h1>
-    <p><a [routerLink]="['/selectCompany']">Home</a> > <a [routerLink]="['/vc/home']">Clients by location</a> > <span>Customers in Minas Gerais</span></p>
+    <p><a [routerLink]="['/selectCompany']">Home</a> > <a [routerLink]="['/vc/home']">Clients by location</a> >
+      <span>Customers in Minas Gerais</span></p>
     <div class="contBox">
       <h2>Customers in Minas Gerais</h2>
       <table [routerLink]="['/vc/collaborators']">
@@ -28,14 +29,18 @@
             <th>Locale</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let customer of customerList;">
           <tr>
-            <td>Cliente 01</td>
-            <td  class="text-center"><span class="normal"></span></td>
-            <td>Normal</td>
-            <td>Address</td>
+            <td (click)="routeToCollabratorPage(customer.id)">{{customer.name}}</td>
+            <td class="text-center">
+              <span class="normal" *ngIf="customer.status=='Normal'"></span>
+              <span class="occurrence" *ngIf="customer.status=='Occurrence'"></span>
+              <span class="no-Operation" *ngIf="customer.status=='No-Operation'"></span>
+            </td>
+            <td>{{customer.status}}</td>
+            <td>{{customer.address.stateName}}</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Cliente 02</td>
             <td  class="text-center"><span class="occurrence"></span></td>
             <td>Late collaborator <br/>Collaborator did not attend <br/> Collaborator left early</td>
@@ -58,7 +63,7 @@
             <td  class="text-center"><span class="normal"></span></td>
             <td>Normal</td>
             <td>Address</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>

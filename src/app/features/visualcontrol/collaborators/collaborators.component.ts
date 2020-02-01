@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VisualcontrolService } from '../visualcontrol.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-collaborators',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollaboratorsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service: VisualcontrolService, private route: ActivatedRoute) { }
+  public collaboratorsList = [];
   ngOnInit() {
+    let customerId = this.route.snapshot.paramMap.get('customerId');
+    this.getCollaborators(customerId);
   }
+  getCollaborators(customerId) {
 
+    this.service.getCollaborators(customerId).subscribe(res => {
+      if (res != null) {
+        this.collaboratorsList = res.data.collaborators;
+      }
+    });
+  }
 }

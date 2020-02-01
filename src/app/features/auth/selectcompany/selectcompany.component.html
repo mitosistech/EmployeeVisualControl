@@ -1,12 +1,12 @@
 <div class="vcContainer">
   <div class="vcHeader">
-    
+
     <div class="mLogo">
       <a><img src="./assets/images/logo.jpg" height="44" alt="logo" /></a>
     </div>
 
     <div class="hLogo">
-    
+
       <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a>
     </div>
   </div>
@@ -23,11 +23,12 @@
             <option value="{{company.id}}">{{company.name}}</option>
            
           </datalist> -->
-          <select class="select-css">
-              <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
+          <select class="select-css" [(ngModel)]="businessId">
+            <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
           </select>
         </div>
-        <button [routerLink]="['/vc']">SELECT</button>
+        <!-- <button [routerLink]="['/vc/home/12']">SELECT</button> -->
+        <button (click)="selectCompany(businessId)">SELECT</button>
       </div>
     </div>
   </div>
