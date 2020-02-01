@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { google } from "google-maps";
+import {DomSanitizer} from "@angular/platform-browser";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -7,7 +8,7 @@ import { google } from "google-maps";
 })
 export class HomeComponent implements OnInit {
   @ViewChild("mapRef", { static: true }) mapElement: ElementRef;
-  constructor() {}
+  constructor(private sanitizer: DomSanitizer) {}
  
   ngOnInit() {
     this.renderMap();
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
       this.loadMap();
     }
   }
-
+  
   loadMap = () => {
 
     var location = [
@@ -36,19 +37,9 @@ export class HomeComponent implements OnInit {
       {'name':'AC', 'lat':'-9.225730', 'lon':'-70.601231'}
     ]
 
-    var contentString =
-      '<div id="content">' +
-      '<div id="siteNotice">' +
-      "</div>" +
-      '<h3 id="thirdHeading" class="thirdHeading">W3path.com</h3>' +
-      '<div id="bodyContent">' +
-      "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>" +
-      "</div>" +
-      "</div>";
+    
 
-    var infowindow = new window["google"].maps.InfoWindow({
-      content: contentString
-    });
+    
 
   
 
@@ -81,26 +72,36 @@ export class HomeComponent implements OnInit {
       ]
 
      });
+     
     for(i = 0; i < location.length; i++){
-      console.log(typeof location[i].lat)
       
+    
       marker = new window["google"].maps.Marker({
         position: new google.maps.LatLng(Number(location[i].lat), Number(location[i].lon)),
         map: map
       })
-
-      google.maps.event.addListener(
-        marker,
-        'click',
-        (function(marker, i) {
-          return function() {
-            infowindow.setContent("<div><a routerLink='/clients'>"+location[i].name+"</a></div>")
-            infowindow.open(map, marker)
-          }
-        })(marker, i)
-      )
+      
+      var infowindow = new window["google"].maps.InfoWindow();
+     
+      infowindow.setContent("<div><a href='http://localhost:9090/vc/clients'>"+location[i].name+"</a></div>")
+      infowindow.open(map, marker)
+    marker.setVisible(false);
+      // google.maps.event.addListener(
+      //   marker,
+      //   'click',
+      //   (function(marker, i) {
+      //     return function() {
+      //       infowindow.setContent(this.sanitizer.bypassSecurityTrustHtml("<div><a (click)='occurance()'>"+location[i].name+"</a></div>"))
+      //       infowindow.open(map, marker)
+      //     }
+      //   })(marker, i)
+      // )
+    
+      
     }
-
-
+   
+   
   };
+
+  
 }
