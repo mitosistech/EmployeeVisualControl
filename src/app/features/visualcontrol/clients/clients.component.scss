@@ -204,3 +204,27 @@
     min-width:200px;
   }
 }
+
+.svgMap path{
+  fill: #c9dcfe;
+  stroke: #5b93fa;
+}
+
+.svgMap path.activepath{fill:red}
+
+
+.svgMap path:hover{
+  fill: #93b7f8;
+}
+.svgmain{
+  width:200px;
+  height:130px;
+}
+.svgCont{
+  transform: scale(0.22,0.22);
+  position: absolute;
+    left: -5px;
+    top: -35px;
+    width: 200px;
+    height: 200px;
+}
