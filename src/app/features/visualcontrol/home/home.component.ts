@@ -18,6 +18,11 @@ export class HomeComponent implements OnInit {
     this.renderMap();
   }
 
+  getstate(st){
+    console.log(st)
+  }
+
+
   routeToClientPage(locationId) {
     this.router.navigate(["/vc/clients/" + locationId]);
   }

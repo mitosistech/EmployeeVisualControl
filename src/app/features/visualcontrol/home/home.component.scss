@@ -155,3 +155,16 @@
     margin-right:28px;
   }
 }
+
+
+
+.svgMap path{
+  fill: #c9dcfe;
+  stroke: #5b93fa;
+}
+.svgMap path:hover{
+  fill: #93b7f8;
+}
+.svgMap circle{
+  cursor: pointer;
+}
