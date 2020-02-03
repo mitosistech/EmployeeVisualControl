@@ -16,18 +16,11 @@
       <div class="scBox">
         <h3>Employee Visual Control</h3>
         <div class="selectCompany">
-          <!-- <input list="company" placeholder="Select Company"> -->
-
-          <!-- <datalist id="company" *ngFor="let company of companyList;">
-
-            <option value="{{company.id}}">{{company.name}}</option>
-           
-          </datalist> -->
+   
           <select class="select-css" [(ngModel)]="businessId">
             <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
           </select>
         </div>
-        <!-- <button [routerLink]="['/vc/home/12']">SELECT</button> -->
         <button (click)="selectCompany(businessId)">SELECT</button>
       </div>
     </div>
