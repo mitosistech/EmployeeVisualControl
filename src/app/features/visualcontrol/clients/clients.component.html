@@ -29,13 +29,14 @@
             <th>Locale</th>
           </tr>
         </thead>
-        <tbody >
+        <tbody>
           <tr *ngFor="let customer of customerList;">
             <td (click)="routeToCollabratorPage(customer.id)">{{customer.name}}</td>
             <td class="text-center">
-              <span class="normal" *ngIf="customer.status=='Normal'"></span>
-              <span class="occurrence" *ngIf="customer.status=='Occurrence'"></span>
-              <span class="no-Operation" *ngIf="customer.status=='No-Operation'"></span>
+              <span class="green" *ngIf="customer.statusCode==1||collaborator.statusCode==2"></span>
+              <span class="red" *ngIf="customer.statusCode==3||collaborator.statusCode==7"></span>
+              <span class="yellow" *ngIf="customer.statusCode==4|| collaborator.statusCode==8"></span>
+              <span class="gray" *ngIf="customer.statusCode==5|| collaborator.statusCode==6"></span>
             </td>
             <td>{{customer.status}}</td>
             <td>{{customer.address.stateName}}</td>

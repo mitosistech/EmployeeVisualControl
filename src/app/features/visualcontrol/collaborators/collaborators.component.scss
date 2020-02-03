@@ -155,14 +155,17 @@
                 border-radius:50%;
                 display: inline-block;
               }
-              span.normal{
+              span.green{
                 background-color: #1dab24;
               }
-              span.occurrence{
+              span.red{
                 background-color: #f80000;
               }
-              span.no-Operation{
+              span.gray{
                  background-color: #d6d6d6;
+              }
+              span.yellow{
+                 background-color: #dff709;
               }
             }
           }
