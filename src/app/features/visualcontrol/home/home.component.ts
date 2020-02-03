@@ -11,15 +11,15 @@ export class HomeComponent implements OnInit {
   @ViewChild("mapRef", { static: true }) mapElement: ElementRef;
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   public locationCoordinates = [];
-  
+
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
     this.getListOfLocationByBusinessId(businessId);
     this.renderMap();
   }
 
-  getstate(st){
-    console.log(st)
+  getstate(st) {
+    this.router.navigate(["/vc/clients/" + 2]);
   }
 
 
@@ -28,9 +28,23 @@ export class HomeComponent implements OnInit {
   }
   getListOfLocationByBusinessId(businessId) {
 
+
+    // var svg1 = document.getElementById('PM-AC');
+    // var svg2 = document.getElementById('PM-RO');
+    // var svg3 = document.getElementById('PM-RR');
+    // var svg4 = document.getElementById('PM-PA');
+    // svg1.setAttribute("fill", "red");
+    // svg2.setAttribute("fill", "red");
+    // svg3.setAttribute("fill", "red");
+    // svg4.setAttribute("fill", "red");
+
+    // var svg5 = document.getElementById('PM');
+    // svg5.setAttribute("fill", "green");
+
+
     this.service.getLocation(businessId).subscribe(res => {
       if (res.data.locations != null && res.data.locations != null && res.data.locations.length != 0) {
-        
+
         for (let i = 0; i < res.data.locations.length; i++) {
           let location = {
             name: res.data.locations[i].address.stateName,
@@ -129,7 +143,7 @@ export class HomeComponent implements OnInit {
 
       //  infowindow.setContent("<div><a href='http://204.27.60.26:8080/evc/vc/clients/" + this.locationCoordinates[i].id + "'>" + this.locationCoordinates[i].name + "</a></div>")
 
-      infowindow.setContent("<div class='mapinfowindow'><a style='font-weight:600; color:#000000; ' href='http://204.27.60.26:8080/evc/#/vc/clients/" + this.locationCoordinates[i].id + "'><span style=' width:10px; height:10px; border-radius:50%; margin-right:3px; display:inline-block;' class='status" + this.locationCoordinates[i].status + "'></span>"+ this.locationCoordinates[i].name + "</a></div>")
+      infowindow.setContent("<div class='mapinfowindow'><a style='font-weight:600; color:#000000; ' href='http://204.27.60.26:8080/evc/#/vc/clients/" + this.locationCoordinates[i].id + "'><span style=' width:10px; height:10px; border-radius:50%; margin-right:3px; display:inline-block;' class='status" + this.locationCoordinates[i].status + "'></span>" + this.locationCoordinates[i].name + "</a></div>")
 
       infowindow.open(map, marker)
       marker.setVisible(false);
