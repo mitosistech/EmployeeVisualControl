@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router, private visualcontrolComponent: VisualcontrolComponent) { }
   public locationCoordinates = [];
   public companyId;
+
+  private removeIdList = [];
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
     this.companyId = this.route.snapshot.paramMap.get('businessId');
@@ -31,39 +33,11 @@ export class HomeComponent implements OnInit {
   }
   getListOfLocationByBusinessId(businessId) {
 
-
-    // var svg1 = document.getElementById('PM-AC');
-    // var svg2 = document.getElementById('PM-RO');
-    // var svg3 = document.getElementById('PM-RR');
-    // var svg4 = document.getElementById('PM-PA');
-    // svg1.setAttribute("fill", "red");
-    // svg2.setAttribute("fill", "red");
-    // svg3.setAttribute("fill", "red");
-    // svg4.setAttribute("fill", "red");
-
-    // var svg5 = document.getElementById('PM');
-    // svg5.setAttribute("fill", "green");
-
-
     this.service.getLocation(businessId).subscribe(res => {
       if (res.data.locations != null && res.data.locations != null && res.data.locations.length != 0) {
         this.visualcontrolComponent.setCompanyLogo(res.data.business.name, res.data.business.logoSmallUrl);
         for (let i = 0; i < res.data.locations.length; i++) {
-          // let location = {
-          //   name: res.data.locations[i].address.stateName,
-          //   lat: res.data.locations[i].address.latitude,
-          //   lon: res.data.locations[i].address.longitude,
-          //   id: res.data.locations[i].id,
-          //   status: res.data.locations[i].status
-          // };
-          // this.locationCoordinates.push(location);
 
-          // let location = {
-          //   stateCode: res.data.locations[i].address.stateId,
-          //   locationId: res.data.locations[i].id,
-          //   statusCode: res.data.locations[i].statusCode
-          // }
-          // this.locationCoordinates.push(location);
           if (res.data.locations[i].address.stateId) {
             var temp = "PM-" + res.data.locations[i].address.stateId;
             var svg = document.getElementById(temp);
@@ -71,6 +45,7 @@ export class HomeComponent implements OnInit {
               svg.setAttribute("fill", "green");
             } else if (res.data.locations[i].statusCode == 3 || res.data.locations[i].statusCode == 7) {
               svg.setAttribute("fill", "red");
+
             } else if (res.data.locations[i].statusCode == 4 || res.data.locations[i].statusCode == 8) {
               svg.setAttribute("fill", "yellow");
             } else if (res.data.locations[i].statusCode == 5 || res.data.locations[i].statusCode == 6) {
@@ -79,14 +54,38 @@ export class HomeComponent implements OnInit {
               //svg.setAttribute("fill", "white");
               svg.removeAttribute("circle");
             }
+            this.removeIdList.push(temp.trim());
           }
-
         }
-
+        this.removeCircle(this.removeIdList);
         //  this.loadMap();
       }
     });
 
+  }
+
+  removeCircle(listIfId) {
+    this.service.getStateCode().subscribe(res => {
+      console.log(res.data);
+      let tempList = []
+      for (let i = 0; i < res.data.length; i++) {
+        tempList.push("PM-" + res.data[i].stateCode.trim());
+      }
+
+      for (let i = 0; i < tempList.length; i++) {
+        if (listIfId.indexOf(tempList[i]) > -1) {
+
+        } else {
+          var svg = document.getElementById(tempList[i]);
+          svg.removeAttribute("cx");
+          svg.removeAttribute("cy");
+          svg.removeAttribute("r");
+        }
+        //   }
+      }
+
+
+    });
   }
 
   renderMap() {

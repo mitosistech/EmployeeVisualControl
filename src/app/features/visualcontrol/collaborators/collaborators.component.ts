@@ -15,7 +15,7 @@ export class CollaboratorsComponent implements OnInit {
 
   public companyId;
   public clientsId;
-
+  public customer;
   ngOnInit() {
     let customerId = this.route.snapshot.paramMap.get('customerId');
     this.clientsId = this.route.snapshot.paramMap.get('customerId');
@@ -25,10 +25,10 @@ export class CollaboratorsComponent implements OnInit {
   }
 
   navTolocation() {
-    this.router.navigate(["/vc/home/" + this.companyId]);
+    this.router.navigate(["/vc/home/" + this.customer.businessUnitId]);
   }
   navToClients() {
-    this.router.navigate(["/vc/clients/" + this.companyId + "/this.stateCode"]);
+    this.router.navigate(["/vc/clients/" + this.customer.businessUnitId + "/" + this.stateCode]);
   }
 
 
@@ -36,6 +36,7 @@ export class CollaboratorsComponent implements OnInit {
 
     this.service.getCollaborators(customerId).subscribe(res => {
       if (res != null) {
+        this.customer = res.data.customer;
         this.collaboratorsList = res.data.collaborators;
       }
     });

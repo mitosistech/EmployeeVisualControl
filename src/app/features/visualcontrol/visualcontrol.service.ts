@@ -40,4 +40,12 @@ export class VisualcontrolService {
       })
     );
   }
+
+  public getStateCode(): Observable<any> {
+    return this.http.get(this.apiURL + '/locations/getStates', this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
 }
