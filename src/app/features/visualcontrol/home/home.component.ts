@@ -12,15 +12,17 @@ export class HomeComponent implements OnInit {
   @ViewChild("mapRef", { static: true }) mapElement: ElementRef;
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router, private visualcontrolComponent: VisualcontrolComponent) { }
   public locationCoordinates = [];
-
+  public companyId;
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
+    this.companyId = this.route.snapshot.paramMap.get('businessId');
     this.getListOfLocationByBusinessId(businessId);
     this.renderMap();
   }
 
   getstate(st) {
-    this.router.navigate(["/vc/clients/" + 2 + "/" + st]);
+    // this.router.navigate(["/vc/clients/" + 2 + "/" + st]);
+    this.router.navigate(["/vc/clients/"+2+"/"+this.companyId]);
   }
 
 
