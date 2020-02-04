@@ -10,6 +10,7 @@ export class VisualcontrolComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("jffaksdfsdfsdfhasdjkfbgjhkgjhkbgjh");
   }
 
 }
