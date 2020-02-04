@@ -9,10 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ClientsComponent implements OnInit {
   public customerList = [];
-
+  public stateCode: any;
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   ngOnInit() {
     let locationId = this.route.snapshot.paramMap.get('locationId');
+    this.stateCode = this.route.snapshot.paramMap.get('stateCode');
     this.getCustomerList(locationId);
   }
 
@@ -26,7 +27,7 @@ export class ClientsComponent implements OnInit {
   }
 
   routeToCollabratorPage(customerId) {
-    this.router.navigate(["/vc/collaborators/" + customerId]);
+    this.router.navigate(["/vc/collaborators/" + customerId + "/" + this.stateCode]);
   }
 
 }

@@ -11,8 +11,10 @@ export class CollaboratorsComponent implements OnInit {
 
   constructor(private service: VisualcontrolService, private route: ActivatedRoute) { }
   public collaboratorsList = [];
+  public stateCode: any;
   ngOnInit() {
     let customerId = this.route.snapshot.paramMap.get('customerId');
+    this.stateCode = this.route.snapshot.paramMap.get('stateCode');
     this.getCollaborators(customerId);
   }
   getCollaborators(customerId) {
