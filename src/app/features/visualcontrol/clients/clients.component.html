@@ -117,7 +117,7 @@
   </div>
   <div class="mainCont">
     <h1>Employee Visual Control</h1>
-    <p><a [routerLink]="['/selectCompany']">Home</a> > <a [routerLink]="['/vc/home']">Clients by location</a> >
+    <p><a [routerLink]="['/selectCompany']">Home</a> > <a (click)="navToClients()">Clients by location</a> >
       <span>Customers</span></p>
     <div class="contBox">
       <h2>Customers</h2>

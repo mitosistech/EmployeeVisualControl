@@ -120,8 +120,8 @@
   </div>
   <div class="mainCont">
     <h1>Employee Visual Control</h1>
-    <p><a [routerLink]="['/selectCompany']">Home</a> > <a [routerLink]="['/vc/home']">Clients by location</a> > <a
-        [routerLink]="['/vc/clients']">Customers</a> > <span>Collaborators</span></p>
+    <p><a [routerLink]="['/selectCompany']">Home</a> > <a (click)="navTolocation()">Clients by location</a> > <a
+           (click)="navToClients()">Customers</a> > <span>Collaborators</span></p>
     <div class="contBox">
       <h2>Collaborators</h2>
       <table>
