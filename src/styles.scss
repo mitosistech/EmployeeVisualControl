@@ -53,6 +53,11 @@
   font-weight: 700;
   src: url('./assets/fonts/CeraRoundPro-Black.otf');
 }
+@font-face {
+  font-family: 'Typographica';
+  font-style: normal;
+  src: url('./assets/fonts/Typographica.ttf');
+}
 
 body{
 	font-family: 'CeraRoundPro' !important;
@@ -133,4 +138,13 @@ table tbody tr{
 }
 table tbody tr:hover{
   background-color:#FFFFFF !important;
+}
+
+
+
+.sidebar{
+  position:fixed !important;
+}
+.mainCont{
+  padding-left:320px !important;
 }
