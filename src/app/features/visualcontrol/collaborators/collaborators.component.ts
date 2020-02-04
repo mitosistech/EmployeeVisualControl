@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CollaboratorsComponent implements OnInit {
 
-  constructor(private service: VisualcontrolService, private route: ActivatedRoute,  public router: Router) { }
+  constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   public collaboratorsList = [];
   public stateCode: any;
 
@@ -24,11 +24,11 @@ export class CollaboratorsComponent implements OnInit {
     this.getCollaborators(customerId);
   }
 
-  navTolocation(){
+  navTolocation() {
     this.router.navigate(["/vc/home/" + this.companyId]);
   }
-  navToClients(){
-    this.router.navigate(["/vc/clients/2/"+ this.companyId]);
+  navToClients() {
+    this.router.navigate(["/vc/clients/" + this.companyId + "/this.stateCode"]);
   }
 
 

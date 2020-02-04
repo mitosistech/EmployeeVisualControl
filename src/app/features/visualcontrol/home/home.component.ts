@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   getstate(st) {
-    this.router.navigate(["/vc/clients/" + 2 + "/" + st]);
+    this.router.navigate(["/vc/clients/" + this.companyId + "/" + st]);
     //this.router.navigate(["/vc/clients/"+2+"/"+this.companyId]);
   }
 
@@ -49,14 +49,38 @@ export class HomeComponent implements OnInit {
       if (res.data.locations != null && res.data.locations != null && res.data.locations.length != 0) {
         this.visualcontrolComponent.setCompanyLogo(res.data.business.name, res.data.business.logoSmallUrl);
         for (let i = 0; i < res.data.locations.length; i++) {
-          let location = {
-            name: res.data.locations[i].address.stateName,
-            lat: res.data.locations[i].address.latitude,
-            lon: res.data.locations[i].address.longitude,
-            id: res.data.locations[i].id,
-            status: res.data.locations[i].status
-          };
-          this.locationCoordinates.push(location);
+          // let location = {
+          //   name: res.data.locations[i].address.stateName,
+          //   lat: res.data.locations[i].address.latitude,
+          //   lon: res.data.locations[i].address.longitude,
+          //   id: res.data.locations[i].id,
+          //   status: res.data.locations[i].status
+          // };
+          // this.locationCoordinates.push(location);
+
+          // let location = {
+          //   stateCode: res.data.locations[i].address.stateId,
+          //   locationId: res.data.locations[i].id,
+          //   statusCode: res.data.locations[i].statusCode
+          // }
+          // this.locationCoordinates.push(location);
+          if (res.data.locations[i].address.stateId) {
+            var temp = "PM-" + res.data.locations[i].address.stateId;
+            var svg = document.getElementById(temp);
+            if (res.data.locations[i].statusCode == 1 || res.data.locations[i].statusCode == 2) {
+              svg.setAttribute("fill", "green");
+            } else if (res.data.locations[i].statusCode == 3 || res.data.locations[i].statusCode == 7) {
+              svg.setAttribute("fill", "red");
+            } else if (res.data.locations[i].statusCode == 4 || res.data.locations[i].statusCode == 8) {
+              svg.setAttribute("fill", "yellow");
+            } else if (res.data.locations[i].statusCode == 5 || res.data.locations[i].statusCode == 6) {
+              svg.setAttribute("fill", "gray");
+            } else {
+              //svg.setAttribute("fill", "white");
+              svg.removeAttribute("circle");
+            }
+          }
+
         }
 
         //  this.loadMap();

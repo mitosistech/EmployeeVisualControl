@@ -26,8 +26,8 @@ export class VisualcontrolService {
     );
   }
 
-  public getCustomerList(locationId): Observable<any> {
-    return this.http.get(this.apiURL + '/locations/' + locationId + '/customers', this.httpOptions).pipe(
+  public getCustomerList(businessUnitId, stateId): Observable<any> {
+    return this.http.get(this.apiURL + '/customers?businessUnitId=' + businessUnitId + '&stateId=' + stateId, this.httpOptions).pipe(
       map((response) => {
         return response;
       })

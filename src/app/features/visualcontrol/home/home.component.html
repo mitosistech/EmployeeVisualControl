@@ -3,10 +3,10 @@
     <div class="statusBox">
       <h4>Status</h4>
       <ul class="status">
-        <li><a class="normal"><span></span>Normal</a></li>
-        <li><a class="occurrence"><span></span>Occurrence</a></li>
-        <li><a class="inactive"><span></span><label>It hasn't hit the point yet, But it's off the hour
-              acting</label></a></li>
+        <li><a class="green"><span></span>Em jornada/Intervalo</a></li>
+        <li><a class="red"><span></span>Ausente/Atrasado</a></li>
+        <li><a class="yellow"><span></span>Em jornada extra/Trabalhando em dia de folga</a></li>
+        <li><a class="gray"><span></span>Expediente encerrado/De folga</a></li>
       </ul>
     </div>
 
@@ -29,8 +29,6 @@
           <div class="mt-3">
             <div class="cardbody">
               <!-- <div #mapRef style="width:100%;height:400px"></div> -->
-
-
               <svg xmlns:mapsvg="http://mapsvg.com" xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns="http://www.w3.org/2000/svg" width="612.51611" height="639.04297" mapsvg:geoViewBox=""
@@ -119,155 +117,156 @@
                   title="Tocantins" id="BR-TO" />
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("am")' cx="150" cy="140" r="8" stroke="black" stroke-width="0"
-                    fill="green" />
+                  <circle (click)='getstate("am")' readonly cx="150" cy="140" r="8" stroke="black" stroke-width="0"
+                    fill="black" id="PM-AM" />
                   <text x="164" y="146" fill="black">AM</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("ac")' cx="66" cy="238" r="8" stroke="black" stroke-width="0" fill="red"
+                  <circle (click)='getstate("ac")' cx="66" cy="238" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-AC" />
                   <text x="78" y="245" fill="black">AC</text>
+
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("ro")' cx="154" cy="251" r="8" stroke="black" stroke-width="0" fill='red'
+                  <circle (click)='getstate("ro")' cx="154" cy="251" r="8" stroke="black" stroke-width="0" fill='black'
                     id="PM-RO" />
                   <text x="168" y="258" fill="black">RO</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("rr")' cx="200" cy="45" r="8" stroke="black" stroke-width="0" fill="red"
+                  <circle (click)='getstate("rr")' cx="200" cy="45" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-RR" />
                   <text x="190" y="72" fill="black">RR</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("pa")' cx="310" cy="160" r="8" stroke="black" stroke-width="0" fill="red"
+                  <circle (click)='getstate("pa")' cx="310" cy="160" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-PA" />
                   <text x="325" y="166" fill="black">PA</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("ap")' cx="345" cy="50" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("ap")' cx="345" cy="50" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-AP" />
                   <text x="335" y="76" fill="black">AP</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("mt")' cx="285" cy="280" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("mt")' cx="285" cy="280" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-MT" />
                   <text x="300" y="286" fill="black">MT</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("ms")' cx="285" cy="400" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("ms")' cx="285" cy="400" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-MS" />
                   <text x="300" y="406" fill="black">MS</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("pr")' cx="330" cy="480" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("pr")' cx="330" cy="480" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-PR" />
                   <text x="345" y="486" fill="black">PR</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("sc")' cx="360" cy="520" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("sc")' cx="360" cy="520" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-SC" />
                   <text x="372" y="526" fill="black">SC</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("rg")' cx="300" cy="560" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("rg")' cx="300" cy="560" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-RG" />
                   <text x="312" y="566" fill="black">RG</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("sp")' cx="370" cy="430" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("sp")' cx="370" cy="430" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-SP" />
                   <text x="383" y="436" fill="black">SP</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("rj")' cx="490" cy="438" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("rj")' cx="490" cy="438" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-RJ" />
                   <text x="503" y="444" fill="black">RJ</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("mg")' cx="450" cy="380" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("mg")' cx="450" cy="380" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-MG" />
                   <text x="463" y="386" fill="black">MG</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("es")' cx="520" cy="398" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("es")' cx="520" cy="398" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-ES" />
                   <text x="533" y="404" fill="black">ES</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("go")' cx="380" cy="304" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("go")' cx="380" cy="304" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-GO" />
                   <text x="392" y="310" fill="black">GO</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("df")' cx="410" cy="334" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("df")' cx="410" cy="334" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-DF" />
                   <text x="422" y="340" fill="black">DF</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("to")' cx="400" cy="234" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("to")' cx="400" cy="234" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-TO" />
                   <text x="388" y="260" fill="black">TO</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("ba")' cx="476" cy="270" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("ba")' cx="476" cy="270" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-BA" />
                   <text x="488" y="276" fill="black">BA</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("ma")' cx="436" cy="160" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("ma")' cx="436" cy="160" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-MA" />
                   <text x="448" y="166" fill="black">MA</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("pi")' cx="466" cy="210" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("pi")' cx="466" cy="210" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-PI" />
                   <text x="478" y="216" fill="black">PI</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("ce")' cx="526" cy="160" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("ce")' cx="526" cy="160" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-CE" />
                   <text x="540" y="166" fill="black">CE</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("rn")' cx="576" cy="170" r="8" stroke="black" stroke-width="0" fill="red"
+                  <circle (click)='getstate("rn")' cx="576" cy="170" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-RN" />
                   <text x="588" y="176" fill="black">RN</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("pb")' cx="566" cy="190" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("pb")' cx="566" cy="190" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-PB" />
                   <text x="578" y="196" fill="black">PB</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("pe")' cx="546" cy="210" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("pe")' cx="546" cy="210" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-PE" />
                   <text x="558" y="216" fill="black">PE</text>
                 </g>
 
                 <g x="100" y="100">
-                  <circle (click)='getstate("al")' cx="586" cy="234" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("al")' cx="586" cy="234" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-AL" />
                   <text x="598" y="240" fill="black">AL</text>
                 </g>
                 <g x="100" y="100">
-                  <circle (click)='getstate("se")' cx="570" cy="250" r="8" stroke="black" stroke-width="0" fill="green"
+                  <circle (click)='getstate("se")' cx="570" cy="250" r="8" stroke="black" stroke-width="0" fill="black"
                     id="PM-SE" />
                   <text x="574" y="270" fill="black">SE</text>
                 </g>

@@ -14,16 +14,16 @@ export class ClientsComponent implements OnInit {
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   ngOnInit() {
     let locationId = this.route.snapshot.paramMap.get('locationId');
-    this.companyId = this.route.snapshot.paramMap.get('companyId');
+    this.companyId = this.route.snapshot.paramMap.get('businessId');
     this.stateCode = this.route.snapshot.paramMap.get('stateCode');
-    this.getCustomerList(locationId);
+    this.getCustomerList();
   }
-  navToClients(){
+  navToClients() {
     this.router.navigate(["/vc/home/" + this.companyId]);
   }
-  getCustomerList(locationId) {
+  getCustomerList() {
 
-    this.service.getCustomerList(locationId).subscribe(res => {
+    this.service.getCustomerList(this.companyId, this.stateCode).subscribe(res => {
       if (res != null) {
         this.customerList = res.data.customers;
       }
@@ -31,7 +31,7 @@ export class ClientsComponent implements OnInit {
   }
 
   routeToCollabratorPage(customerId) {
-    this.router.navigate(["/vc/collaborators/" + customerId+"/"+this.companyId]);
+    this.router.navigate(["/vc/collaborators/" + customerId + "/" + this.stateCode]);
   }
 
 }
