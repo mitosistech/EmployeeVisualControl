@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   }
 
   getstate(st) {
-    // this.router.navigate(["/vc/clients/" + 2 + "/" + st]);
-    this.router.navigate(["/vc/clients/"+2+"/"+this.companyId]);
+    this.router.navigate(["/vc/clients/" + 2 + "/" + st]);
+    //this.router.navigate(["/vc/clients/"+2+"/"+this.companyId]);
   }
 
 
