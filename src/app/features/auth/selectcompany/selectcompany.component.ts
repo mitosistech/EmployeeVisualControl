@@ -17,7 +17,6 @@ export class SelectcompanyComponent implements OnInit {
 
   getCompanyList() {
     this.service.getCompanyList().subscribe(res => {
-      console.log(res);
       this.companyList = res[0].business_units;
     });
   }

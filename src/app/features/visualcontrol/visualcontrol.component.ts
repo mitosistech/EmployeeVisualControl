@@ -6,11 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visualcontrol.component.scss']
 })
 export class VisualcontrolComponent implements OnInit {
-
+  public businessUnitName: any;
   constructor() { }
 
   ngOnInit() {
-    console.log("jffaksdfsdfsdfhasdjkfbgjhkgjhkbgjh");
+
+  }
+
+  setCompanyLogo(name, logo) {
+    if (logo) {
+
+    } else {
+      this.businessUnitName = name;
+    }
   }
 
 }
