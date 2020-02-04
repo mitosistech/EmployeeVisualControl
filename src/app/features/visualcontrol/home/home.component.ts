@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     let businessId = this.route.snapshot.paramMap.get('businessId');
     this.companyId = this.route.snapshot.paramMap.get('businessId');
     this.getListOfLocationByBusinessId(businessId);
-    this.renderMap();
+    // this.renderMap();
   }
 
   getstate(st) {
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
           this.locationCoordinates.push(location);
         }
 
-        this.loadMap();
+        //  this.loadMap();
       }
     });
 
