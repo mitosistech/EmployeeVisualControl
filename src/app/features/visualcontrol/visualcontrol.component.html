@@ -3,11 +3,34 @@
     <div class="mLogo">
       <!-- <a><img src="./assets/images/stefanini.png" height="26" alt="logo" /></a> -->
       <!-- <span>{{businessUnitName}}</span> -->
-      <span class="comLogo">{{businessUnitName}}</span>
+      <div class="comLogo">
+        {{businessUnitName}}
+        <a class="uploadCompanyLogo" title="Upload/Change Company Logo">
+          <input type="file" />
+          <img src="./assets/images/svg/upload.svg" height="16" alt="upload" />
+        </a>
+      </div>
+      <a class="managerDet">Manager</a>
     </div>
     <div class="hLogo">
       <a><img src="./assets/images/logo.jpg" height="44" alt="logo" /></a>
-      <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a>
+      <!-- <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a> -->
+
+      <!-- <a class="proImgCont">
+        <img src="./assets/images/svg/avatar.svg" width="20"/>
+      </a> -->
+
+      <div class="dropdown">
+        
+        <a   class="btn btn-primary dropdown-toggle proImgCont" data-toggle="dropdown">
+          <img src="./assets/images/svg/avatar.svg" width="20"/>
+        </a> 
+        <div class="dropdown-menu  dropdown-menu-right">
+          <a class="dropdown-item" title="Logout" [routerLink]="['/login']">Logout</a> 
+         
+        </div>
+      </div>
+
     </div>
   </div>
 
