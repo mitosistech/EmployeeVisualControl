@@ -10,14 +10,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ForgetpasswordComponent implements OnInit {
 
-  constructor(private service: LoginService, public router: Router,private toastr: ToastrService) { }
+  constructor(private service: LoginService, public router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
-  forgotPassword(data){
-    this.service.verifyMail(null,data).subscribe(res => {
+  forgotPassword(userName) {
+    this.service.verifyMail(null, userName).subscribe(res => {
       let result = JSON.parse(res);
+      this.toastr.success("Link sent your mail..! Please check it");
     });
   }
 }

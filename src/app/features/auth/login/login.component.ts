@@ -13,25 +13,27 @@ export class LoginComponent implements OnInit {
   constructor(private service: LoginService, public router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.toastr.error('Login failed');
+
   }
 
   login(data) {
     if (!data) {
       return;
     }
+
     this.service.login(data).subscribe(res => {
       let result = JSON.parse(res);
 
       if (result.data != null) {
+        this.toastr.success('sucesso');
         if (result.data.superAdmin) {
           this.router.navigate(["/selectCompany"]);
         } else {
-          this.router.navigate(["/vc/home/"+result.data.business_unit_id]);
+          this.router.navigate(["/vc/home/" + result.data.business_unit_id]);
           // localStorage.setItem("companyName", result.employee_name);
         }
       } else {
-        this.toastr.error('Login failed');
+        this.toastr.error('falha no login, tente novamente');
       }
     });
   }

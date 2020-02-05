@@ -7,11 +7,11 @@ import { SelectcompanyComponent } from './selectcompany/selectcompany.component'
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'forgotPassword', component: ForgetpasswordComponent},
-  {path: 'resetPassword', component: ResetpasswordComponent},
-  {path: 'selectCompany', component: SelectcompanyComponent}
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgotPassword', component: ForgetpasswordComponent },
+  { path: 'resetPassword/:uniqueId', component: ResetpasswordComponent },
+  { path: 'selectCompany', component: SelectcompanyComponent }
 ];
 
 @NgModule({

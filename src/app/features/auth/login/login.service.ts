@@ -30,7 +30,7 @@ export class LoginService {
   public verifyMail(data, userName): Observable<any> {
     return this.http
       .post(
-        this.apiURL + "/user/verifyMail/" + userName,
+        this.apiURL + "/user/verifyMail?userName=" + userName,
         data,
         this.httpOptions
       )

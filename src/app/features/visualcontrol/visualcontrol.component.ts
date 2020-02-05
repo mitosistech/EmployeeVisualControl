@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-visualcontrol',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualcontrolComponent implements OnInit {
   public businessUnitName: any;
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
 
@@ -19,6 +20,16 @@ export class VisualcontrolComponent implements OnInit {
     } else {
       this.businessUnitName = name;
     }
+  }
+
+  navigateToCreateManager() {
+    let businessid = localStorage.getItem("businessid");
+    this.router.navigate(["/vc/addmanager/" + businessid]);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(["/login"]);
   }
 
 }

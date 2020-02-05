@@ -48,4 +48,14 @@ export class VisualcontrolService {
       })
     );
   }
+
+  public createManager(data): Observable<any> {
+    return this.http
+      .post(this.apiURL + "/managers/create", data, this.httpOptions)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      );
+  }
 }

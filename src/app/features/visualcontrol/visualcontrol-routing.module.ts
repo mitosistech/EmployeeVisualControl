@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'clients/:businessId/:stateCode', component: ClientsComponent },
       { path: 'collaborators/:customerId/:stateCode', component: CollaboratorsComponent },
       { path: 'manager', component: ManagerComponent },
-      { path: 'addmanager', component: AddmanagerComponent },
+      { path: 'addmanager/:businessId', component: AddmanagerComponent },
     ]
   }
 ];

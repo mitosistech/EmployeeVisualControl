@@ -23,6 +23,7 @@ export class SelectcompanyComponent implements OnInit {
 
   selectCompany(businessid) {
     if (businessid) {
+      localStorage.setItem("businessid", businessid);
       this.router.navigate(["/vc/home/" + businessid]);
     }
   }

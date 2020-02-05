@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { VisualcontrolService } from '../visualcontrol.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addmanager',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addmanager.component.scss']
 })
 export class AddmanagerComponent implements OnInit {
-
-  constructor() { }
+  public managerModel = {};
+  constructor(private service: VisualcontrolService, private toastr: ToastrService, public router: Router) { }
 
   ngOnInit() {
   }
 
+  createManager(data) {
+    data.businessUnitId = localStorage.getItem("businessid");
+    this.service.createManager(data).subscribe(res => {
+      if (res != null) {
+        this.toastr.success("Gerente de sucesso criado");
+        this.router.navigate(["/selectCompany"]);
+      } else {
+        this.toastr.error("Falhou");
+      }
+    });
+  }
 }

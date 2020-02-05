@@ -1,7 +1,7 @@
 <div class="addManagerCont">
   <div class="container">
     <div class="addManagerForm">
-      <form>
+      <form name="manager">
         <h2>Add Manager</h2>
         <div class="row">
           <div class="col-xs-12 col-sm-8">
@@ -9,13 +9,13 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>First Name</label>
-                  <input type="text" />
+                  <input type="text" name="firstName" [(ngModel)]="managerModel.firstName" />
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Last Name</label>
-                  <input type="text" />
+                  <input type="text" name="lastName" [(ngModel)]="managerModel.lastName" />
                 </div>
               </div>
             </div>
@@ -24,56 +24,53 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Email</label>
-                  <input type="text" />
+                  <input type="text" name="userName" [(ngModel)]="managerModel.userName" />
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-6">
+              <!-- <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Username</label>
-                  <input type="text" />
+                  <input type="text" [(ngModel)]="managerModel."/>
                 </div>
-              </div>
-              
+              </div> -->
+
             </div>
 
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Password</label>
-                  <input type="text" />
+                  <input type="password" name="password" [(ngModel)]="managerModel.password" />
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Confirm Password</label>
-                  <input type="text" />
+                  <input type="password" name="confirmPassword" [(ngModel)]="managerModel.confirmPassword" />
                 </div>
               </div>
-              
+
             </div>
 
-            
+
 
           </div>
           <div class="col-xs-12 col-sm-4">
             <div class="proPicture">
               <p>Profile Picture</p>
               <div class="imgCont">
-             
-                <img src="./assets/images/user.png" width="120"/>
-                
+
+                <img src="./assets/images/user.png" width="120" />
+
               </div>
               <a>
-                <input type="file" name="user" /> 
+                <input type="file" name="user" [(ngModel)]="managerModel.user" />
                 Browse
-                
               </a>
             </div>
           </div>
-
-          
         </div>
-        <button>SUBMIT</button>
+        <button (click)="createManager(managerModel)">SUBMIT</button>
       </form>
     </div>
   </div>
