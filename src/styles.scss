@@ -140,6 +140,9 @@ table tbody tr:hover{
   background-color:#FFFFFF !important;
 }
 
+.app-loading{
+  background-color:#FFFFFF; top:0px; position:absolute; width:100%; height:100%; display:flex; justify-content: center;  align-items: center;
+}
 
 
 .sidebar{
@@ -147,4 +150,36 @@ table tbody tr:hover{
 }
 .mainCont{
   padding-left:320px !important;
+}
+
+.toast-container{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  top:0px;
+  left:0px;
+  background-color: rgba(0,0,0,0.2);
+  
+}
+
+.toast-message{
+  position:relative;
+  z-index:100;
+  padding:20px 20px 20px 50px;
+  background-color: #f19006;
+  color:#FFFFFF;
+  margin-top:20px;
+  border-radius:4px;
+  width:300px;
+  margin-right:20px;
+}
+.toast-message::before{
+  content:url('./assets/images/warning.png');
+  color:#FFFFFF;
+  position:absolute;
+  left:15px;
+  top:15px;
 }
