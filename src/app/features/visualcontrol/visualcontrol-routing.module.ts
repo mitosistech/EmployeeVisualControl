@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { ClientsComponent } from './clients/clients.component';
 import { CollaboratorsComponent } from './collaborators/collaborators.component';
 import { VisualcontrolComponent } from './visualcontrol.component';
+import { ManagerComponent } from './manager/manager.component';
+import { AddmanagerComponent } from './addmanager/addmanager.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'home/:businessId', component: HomeComponent },
       { path: 'clients/:businessId/:stateCode', component: ClientsComponent },
-      { path: 'collaborators/:customerId/:stateCode', component: CollaboratorsComponent }
+      { path: 'collaborators/:customerId/:stateCode', component: CollaboratorsComponent },
+      { path: 'manager', component: ManagerComponent },
+      { path: 'addmanager', component: AddmanagerComponent },
     ]
   }
 ];
@@ -24,4 +28,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class VisualcontrolRoutingModule { }
-export const VisualControlComponent = [HomeComponent, ClientsComponent, CollaboratorsComponent, VisualcontrolComponent];
+export const VisualControlComponent = [HomeComponent, AddmanagerComponent, ManagerComponent, ClientsComponent, CollaboratorsComponent, VisualcontrolComponent];
