@@ -162,12 +162,12 @@ table tbody tr:hover{
   top:0px;
   left:0px;
   background-color: rgba(0,0,0,0.2);
-  
+  z-index:-1;
 }
 
 .toast-message{
   position:relative;
-  z-index:100;
+ 
   padding:20px 20px 20px 50px;
   background-color: #f19006;
   color:#FFFFFF;

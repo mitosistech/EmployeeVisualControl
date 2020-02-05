@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private service: LoginService, public router: Router, private toastr: ToastrService) { }
 
   ngOnInit() { 
-    this.toastr.error('Login failed');
+   
   }
 
   login(data) {
