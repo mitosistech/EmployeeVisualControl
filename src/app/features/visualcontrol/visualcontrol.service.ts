@@ -15,6 +15,12 @@ export class VisualcontrolService {
       "Content-Type": "application/json; charset=utf-8"
     })
   };
+
+  httpOptionsFormData = {
+    headers: new HttpHeaders({
+      "Content-Type": "multipart/form-data; charset=utf-8"
+    })
+  };
   constructor(private http: HttpClient) {
     this.apiURL = AppConfig.urls.base;
   }
@@ -58,4 +64,15 @@ export class VisualcontrolService {
         })
       );
   }
+  public uploadCompanyLogo(businessUnitId, formData): Observable<any> {
+
+    return this.http
+      .post(this.apiURL + "/businessunits/" + businessUnitId + "/logo/upload", formData)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      );
+  }
+
 }

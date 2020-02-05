@@ -13,8 +13,8 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>First Name</label>
-                  <input type="text"  #fname="ngModel" name="firstName" [(ngModel)]="managerModel.firstName" required/>
-                  <div *ngIf="fname.errors && (fname.invalid || fname.touched)">
+                  <input type="text" #fname="ngModel" name="firstName" [(ngModel)]="managerModel.firstName" required />
+                  <div *ngIf="fname.errors && (fname.invalid && fname.touched)">
                     <small class="text-danger" *ngIf="fname.errors.required">Senha requerida</small>
                   </div>
                 </div>
@@ -22,8 +22,8 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Last Name</label>
-                  <input type="text" #lname="ngModel" name="lastName" [(ngModel)]="managerModel.lastName" required/>
-                  <div *ngIf="lname.errors && (lname.invalid || lname.touched)">
+                  <input type="text" #lname="ngModel" name="lastName" [(ngModel)]="managerModel.lastName" required />
+                  <div *ngIf="lname.errors && (lname.invalid && lname.touched)">
                     <small class="text-danger" *ngIf="lname.errors.required">Senha requerida</small>
                   </div>
                 </div>
@@ -33,8 +33,9 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Email</label>
-                  <input type="text" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="userName" [(ngModel)]="managerModel.userName" required/>
-                  <div *ngIf="email.errors && (email.invalid || email.touched)">
+                  <input type="text" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="userName"
+                    [(ngModel)]="managerModel.userName" required />
+                  <div *ngIf="email.errors && (email.invalid && email.touched)">
                     <small class="text-danger" *ngIf="email.errors.required">E-mail é obrigatório</small>
                     <small class="text-danger" *ngIf="email.errors.pattern">Digite um email válido</small>
                   </div>
@@ -46,8 +47,8 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Password</label>
-                  <input type="password" #pwd="ngModel" name="password" [(ngModel)]="managerModel.password" required/>
-                  <div *ngIf="pwd.errors && (pwd.invalid || pwd.touched)">
+                  <input type="password" #pwd="ngModel" name="password" [(ngModel)]="managerModel.password" required />
+                  <div *ngIf="pwd.errors && (pwd.invalid && pwd.touched)">
                     <small class="text-danger" *ngIf="pwd.errors.required">Senha requerida</small>
                   </div>
                 </div>
@@ -55,8 +56,9 @@
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
                   <label>Confirm Password</label>
-                  <input type="password" #cpwd="ngModel" name="confirmPassword" [(ngModel)]="managerModel.confirmPassword" required/>
-                  <div *ngIf="cpwd.errors && (cpwd.invalid || cpwd.touched)">
+                  <input type="password" #cpwd="ngModel" name="confirmPassword"
+                    [(ngModel)]="managerModel.confirmPassword" required />
+                  <div *ngIf="cpwd.errors && (cpwd.invalid && cpwd.touched)">
                     <small class="text-danger" *ngIf="cpwd.errors.required">Senha requerida</small>
                   </div>
                 </div>
@@ -76,7 +78,7 @@
             </div>
           </div>
         </div>
-        <button type="submit" [disabled]="addManagerForm.form.invalid" >SUBMIT</button>
+        <button type="submit" [disabled]="addManagerForm.form.invalid">SUBMIT</button>
       </form>
 
 

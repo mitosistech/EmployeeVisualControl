@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
 
   removeCircle(listIfId) {
     this.service.getStateCode().subscribe(res => {
-      console.log(res.data);
+      //console.log(res.data);
       let tempList = []
       for (let i = 0; i < res.data.length; i++) {
         tempList.push("PM-" + res.data[i].stateCode.trim());
@@ -77,9 +77,12 @@ export class HomeComponent implements OnInit {
 
         } else {
           var svg = document.getElementById(tempList[i]);
-          svg.removeAttribute("cx");
-          svg.removeAttribute("cy");
-          svg.removeAttribute("r");
+          if (svg) {
+            svg.removeAttribute("cx");
+            svg.removeAttribute("cy");
+            svg.removeAttribute("r");
+          }
+
         }
         //   }
       }
@@ -171,7 +174,7 @@ export class HomeComponent implements OnInit {
 
   //     infowindow.open(map, marker)
   //     marker.setVisible(false);
-   
+
   //   }
 
   // };

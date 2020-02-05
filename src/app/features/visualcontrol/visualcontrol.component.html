@@ -4,12 +4,21 @@
       <!-- <a><img src="./assets/images/stefanini.png" height="26" alt="logo" /></a> -->
       <!-- <span>{{businessUnitName}}</span> -->
       <div class="comLogo">
-        {{businessUnitName}}
-        <a class="uploadCompanyLogo" title="Upload/Change Company Logo">
-          <input type="file" name="profile" (change)="uploadCompanyLogo($event)" />
-          <img src="./assets/images/svg/upload.svg" height="16" alt="upload" />
-        </a>
+        <div *ngIf="imgFlag">
+          <a><img src="{{logoURL}}" height="44" alt="logo" /></a>
+        </div>
+        <span *ngIf="!imgFlag">{{businessUnitName}}</span>
+
       </div>
+      <form [formGroup]="uploadForm">
+
+        <div class="comLogo">
+          <a class="uploadCompanyLogo" title="Upload/Change Company Logo">
+            <input type="file" name="profile" (change)="uploadCompanyLogo($event)" />
+            <img src="./assets/images/svg/upload.svg" height="16" alt="upload" />
+          </a>
+        </div>
+      </form>
       <a class="managerDet" (click)="navigateToCreateManager()">Manager</a>
     </div>
     <div class="hLogo">
@@ -33,6 +42,7 @@
 
     </div>
   </div>
+
 
   <div class="mainContainer">
     <router-outlet></router-outlet>

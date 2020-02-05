@@ -11,7 +11,7 @@
           <input name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text"
             placeholder="Endereço de e-mail" [(ngModel)]="userModel.userName" required />
 
-          <div *ngIf="email.errors && (email.invalid || email.touched)">
+          <div *ngIf="email.errors && (email.invalid && email.touched)">
             <small class="text-danger" *ngIf="email.errors.required">E-mail é obrigatório</small>
             <small class="text-danger" *ngIf="email.errors.pattern">Digite um email válido</small>
           </div>
@@ -21,7 +21,7 @@
         <div class="fieldContainer">
           <input name="password" #pwd="ngModel" type="password" placeholder="Senha" [(ngModel)]="userModel.password"
             required pattern="^(?=.*\d).{6,15}$" />
-          <div *ngIf="pwd.errors && (pwd.invalid || pwd.touched)">
+          <div *ngIf="pwd.errors && (pwd.invalid && pwd.touched)">
             <small class="text-danger" *ngIf="pwd.errors.required">Senha requerida</small>
             <small class="text-danger" *ngIf="pwd.errors.pattern">Digite a senha válida</small>
           </div>

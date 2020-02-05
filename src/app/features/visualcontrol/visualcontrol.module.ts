@@ -5,14 +5,15 @@ import { VisualcontrolRoutingModule, VisualControlComponent } from './visualcont
 import { VisualcontrolComponent } from './visualcontrol.component';
 import { ManagerComponent } from './manager/manager.component';
 import { AddmanagerComponent } from './addmanager/addmanager.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [VisualControlComponent, VisualcontrolComponent, ManagerComponent, AddmanagerComponent],
   imports: [
     CommonModule,
     VisualcontrolRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class VisualcontrolModule { }
