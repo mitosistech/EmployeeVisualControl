@@ -35,7 +35,7 @@
         height:36px;
         border-radius:50%;
         border:1px solid #6b9dfa;
-        margin-left:20px;
+        margin-left:10px;
         cursor:pointer;
         background: transparent;
       }
@@ -97,4 +97,35 @@ a.managerDet{
     }
     
   }
+}
+
+.proName{
+  margin-left:20px;
+}
+
+.uploadProImg{
+  padding:15px 10px;
+  min-width:250px;
+  text-align: center;
+  position:relative;
+  a{
+    font-weight: 500;
+  }
+  input{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0px;
+    opacity:0;
+  }
+ 
+}
+.logoutMenu{
+  background-color:rgba(0,0,0,0.04);
+  text-align: center;
+  padding:15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

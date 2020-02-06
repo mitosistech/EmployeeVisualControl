@@ -22,7 +22,11 @@
           <img src="./assets/images/svg/avatar.svg" width="20" />
         </a>
         <div class="dropdown-menu  dropdown-menu-right">
-          <a class="dropdown-item" title="Logout" (click)="logout()">Logout</a>
+          <div class="uploadProImg">
+            <a>Upload Profile Image</a>
+           <input type="file" />
+          </div>
+          <a class="dropdown-item logoutMenu"  title="Logout" (click)="logout()"><img src="./assets/images/logout.png" width="16" alt="logout"/> &nbsp;Logout</a>
 
         </div>
       </div>

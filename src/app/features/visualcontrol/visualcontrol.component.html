@@ -1,8 +1,15 @@
 <div class="vcContainer">
   <div class="vcHeader">
     <div class="mLogo">
+
+      <a><img src="./assets/images/logo.jpg" height="44" alt="logo" /></a>
+
       <!-- <a><img src="./assets/images/stefanini.png" height="26" alt="logo" /></a> -->
       <!-- <span>{{businessUnitName}}</span> -->
+    
+      <!-- <a class="managerDet" (click)="navigateToCreateManager()">Manager</a> -->
+    </div>
+    <div class="hLogo">
       <div class="comLogo">
         <div *ngIf="imgFlag">
           <a><img src="{{logoURL}}" height="44" alt="logo" /></a>
@@ -19,23 +26,24 @@
           </a>
         </div>
       </form>
-      <a class="managerDet" (click)="navigateToCreateManager()">Manager</a>
-    </div>
-    <div class="hLogo">
-      <a><img src="./assets/images/logo.jpg" height="44" alt="logo" /></a>
       <!-- <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a> -->
 
       <!-- <a class="proImgCont">
         <img src="./assets/images/svg/avatar.svg" width="20"/>
       </a> -->
-
+      <a class="proName">Paulo</a>
       <div class="dropdown">
 
         <a class="btn btn-primary dropdown-toggle proImgCont" data-toggle="dropdown">
-          <img src="./assets/images/svg/avatar.svg" width="20" (click)="logout()" />
+          
+          <img src="./assets/images/svg/avatar.svg" width="20" />
         </a>
         <div class="dropdown-menu  dropdown-menu-right">
-          <a class="dropdown-item" title="Logout" (click)="logout()">Logout</a>
+          <div class="uploadProImg">
+            <a>Upload Profile Image</a>
+           <input type="file" />
+          </div>
+          <a class="dropdown-item logoutMenu"  title="Logout" (click)="logout()"><img src="./assets/images/logout.png" width="16" alt="logout"/> &nbsp;Logout</a>
 
         </div>
       </div>
