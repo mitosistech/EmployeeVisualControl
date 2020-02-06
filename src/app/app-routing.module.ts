@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'vc',
     loadChildren: () => import('./features/visualcontrol/visualcontrol.module').then(mod => mod.VisualcontrolModule)
+  },
+  {
+    path: 'managers',
+    loadChildren: () => import('./features/managers/managers.module').then(mod => mod.ManagersModule)
   }
 ];
 

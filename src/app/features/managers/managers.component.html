@@ -10,8 +10,8 @@
       <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a>
     </div> -->
     <ul class="navBarList">
-      <li><a class="active">Home</a></li>
-      <li><a [routerLink]="['/managers']">Manager</a></li>
+      <li><a [routerLink]="['/selectCompany']">Home</a></li>
+      <li><a class="active" [routerLink]="['/selectCompany']">Manager</a></li>
     </ul>
     <div class="hLogo">
       <a class="proName">Paulo</a>
@@ -22,7 +22,7 @@
           <img src="./assets/images/svg/avatar.svg" width="20" />
         </a>
         <div class="dropdown-menu  dropdown-menu-right">
-          <a class="dropdown-item" title="Logout" (click)="logout()">Logout</a>
+          <a class="dropdown-item" title="Logout" >Logout</a>
 
         </div>
       </div>
@@ -32,17 +32,6 @@
   </div>
 
   <div class="mainContainer">
-    <div class="scContainer">
-      <div class="scBox">
-        <h3>Employee Visual Control</h3>
-        <div class="selectCompany">
-   
-          <select class="select-css" [(ngModel)]="businessId">
-            <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
-          </select>
-        </div>
-        <button (click)="selectCompany(businessId)">SELECT</button>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
