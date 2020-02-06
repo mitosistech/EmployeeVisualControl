@@ -1,30 +1,26 @@
 <div class="addManagerCont">
   <div class="container">
     <div class="addManagerForm">
-
-
-
-
       <form name="manager" #addManagerForm="ngForm" (ngSubmit)="createManager(managerModel)">
-        <h2>Add Manager</h2>
+        <h2>Gerente</h2>
         <div class="row">
           <div class="col-xs-12 col-sm-8">
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
-                  <label>First Name</label>
+                  <label>Primeiro nome</label>
                   <input type="text" #fname="ngModel" name="firstName" [(ngModel)]="managerModel.firstName" required />
                   <div *ngIf="fname.errors && (fname.invalid && fname.touched)">
-                    <small class="text-danger" *ngIf="fname.errors.required">Senha requerida</small>
+                    <small class="text-danger" *ngIf="fname.errors.required">O primeiro nome é necessário</small>
                   </div>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
-                  <label>Last Name</label>
+                  <label>Último nome</label>
                   <input type="text" #lname="ngModel" name="lastName" [(ngModel)]="managerModel.lastName" required />
                   <div *ngIf="lname.errors && (lname.invalid && lname.touched)">
-                    <small class="text-danger" *ngIf="lname.errors.required">Senha requerida</small>
+                    <small class="text-danger" *ngIf="lname.errors.required">O sobrenome é obrigatório</small>
                   </div>
                 </div>
               </div>
@@ -32,7 +28,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
-                  <label>Email</label>
+                  <label>O email</label>
                   <input type="text" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="userName"
                     [(ngModel)]="managerModel.userName" required />
                   <div *ngIf="email.errors && (email.invalid && email.touched)">
@@ -46,7 +42,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
-                  <label>Password</label>
+                  <label>Senha</label>
                   <input type="password" #pwd="ngModel" name="password" [(ngModel)]="managerModel.password" required />
                   <div *ngIf="pwd.errors && (pwd.invalid && pwd.touched)">
                     <small class="text-danger" *ngIf="pwd.errors.required">Senha requerida</small>
@@ -55,11 +51,11 @@
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
-                  <label>Confirm Password</label>
+                  <label>Confirme a Senha</label>
                   <input type="password" #cpwd="ngModel" name="confirmPassword"
                     [(ngModel)]="managerModel.confirmPassword" required />
                   <div *ngIf="cpwd.errors && (cpwd.invalid && cpwd.touched)">
-                    <small class="text-danger" *ngIf="cpwd.errors.required">Senha requerida</small>
+                    <small class="text-danger" *ngIf="cpwd.errors.required">confirme a senha é necessária</small>
                   </div>
                 </div>
               </div>
@@ -67,25 +63,19 @@
           </div>
           <div class="col-xs-12 col-sm-4">
             <div class="proPicture">
-              <p>Profile Picture</p>
+              <p>Foto do perfil</p>
               <div class="imgCont">
                 <img src="./assets/images/user.png" width="120" />
               </div>
               <a>
                 <input type="file" name="user" [(ngModel)]="managerModel.user" />
-                Browse
+                Squeaky toy
               </a>
             </div>
           </div>
         </div>
-        <button type="submit" [disabled]="addManagerForm.form.invalid">SUBMIT</button>
+        <button type="submit" [disabled]="addManagerForm.form.invalid">ENVIAR</button>
       </form>
-
-
-
-
-
-
     </div>
   </div>
 </div>
