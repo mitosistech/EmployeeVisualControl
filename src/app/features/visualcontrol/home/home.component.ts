@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
     this.service.getLocation(businessId).subscribe(res => {
       if (res.data.locations != null && res.data.locations != null && res.data.locations.length != 0) {
-        this.visualcontrolComponent.setCompanyLogo(res.data.business.name, res.data.business.logoSmallUrl);
+        //  this.visualcontrolComponent.setCompanyLogo(res.data.business.name, res.data.business.logoSmallUrl);
         for (let i = 0; i < res.data.locations.length; i++) {
 
           if (res.data.locations[i].address.stateId) {

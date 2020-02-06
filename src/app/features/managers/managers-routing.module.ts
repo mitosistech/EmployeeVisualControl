@@ -10,9 +10,9 @@ const routes: Routes = [
     path: '',
     component: ManagersComponent,
     children: [
-      {path: '', component:ManagerListComponent},
-      {path: 'lists', component:ManagerListComponent},
-      {path: 'add', component:AddManagersComponent}
+      { path: '', component: ManagerListComponent },
+      { path: 'lists', component: ManagerListComponent },
+      { path: 'addManagers/:userId', component: AddManagersComponent }
     ]
   }
 ];

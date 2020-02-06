@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { VisualcontrolService } from './visualcontrol.service';
 import { ToastrService } from 'ngx-toastr';
-import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-visualcontrol',
@@ -16,12 +14,17 @@ export class VisualcontrolComponent implements OnInit {
   uploadForm: FormGroup;
   public imgFlag = false;
   public logoURL: any;
+  public userName: any;
+  public profileImg: any;
   constructor(private toastr: ToastrService, public router: Router, private formBuilder: FormBuilder, private service: VisualcontrolService) { }
 
   ngOnInit() {
     this.uploadForm = this.formBuilder.group({
       profile: ['']
     });
+    this.getCompanyLogo();
+    this.userName = localStorage.getItem("userName");
+    this.profileImg = localStorage.getItem("profileImg");
   }
 
   setCompanyLogo(name, logo) {
@@ -38,10 +41,7 @@ export class VisualcontrolComponent implements OnInit {
     this.router.navigate(["/vc/addmanager/" + businessid]);
   }
 
-  logout() {
-    localStorage.clear();
-    this.router.navigate(["/login"]);
-  }
+
   uploadCompanyLogo(event) {
     let businessid = localStorage.getItem("businessid");
     if (event.target.files.length > 0) {
@@ -56,10 +56,39 @@ export class VisualcontrolComponent implements OnInit {
       if (res != null) {
         this.toastr.success("Logotipo enviado com sucesso");
         this.setCompanyLogo(null, res.data.business.logoUrl);
-        //this.setCompanyLogo(null, "https://trellis.co/wp-content/uploads/2015/09/hidden_meanings_facts_within_famous_logos_cover_image.jpg");
-
       }
     });
 
+  }
+
+
+  getCompanyLogo() {
+    let businessid = localStorage.getItem("businessid");
+    this.service.getCompanyLogo(businessid).subscribe(res => {
+      if (res != null) {
+        this.toastr.success("Logotipo enviado com sucesso");
+        this.setCompanyLogo(res.data.business.name, res.data.business.logoUrl);
+      }
+    });
+  }
+
+  uploadprofilePictue(event) {
+    let loginUserId = localStorage.getItem("loginUserId");
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('profile').setValue(file);
+    }
+    const formData = new FormData();
+    formData.append('file', this.uploadForm.get('profile').value);
+    this.service.uploadProfileImage(loginUserId, formData).subscribe(res => {
+      if (res != null) {
+        this.toastr.success("Carregamento da imagem do perfil com sucesso");
+        localStorage.setItem("", res.data.imageUrl);
+      }
+    });
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(["/login"]);
   }
 }

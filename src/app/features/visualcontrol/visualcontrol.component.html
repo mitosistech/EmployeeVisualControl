@@ -6,7 +6,7 @@
 
       <!-- <a><img src="./assets/images/stefanini.png" height="26" alt="logo" /></a> -->
       <!-- <span>{{businessUnitName}}</span> -->
-    
+
       <!-- <a class="managerDet" (click)="navigateToCreateManager()">Manager</a> -->
     </div>
     <div class="hLogo">
@@ -17,7 +17,7 @@
         <span *ngIf="!imgFlag">{{businessUnitName}}</span>
 
       </div>
-      <form [formGroup]="uploadForm">
+      <!-- <form [formGroup]="uploadForm">
 
         <div class="comLogo">
           <a class="uploadCompanyLogo" title="Upload/Change Company Logo">
@@ -25,25 +25,29 @@
             <img src="./assets/images/svg/upload.svg" height="16" alt="upload" />
           </a>
         </div>
-      </form>
+      </form> -->
       <!-- <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a> -->
 
       <!-- <a class="proImgCont">
         <img src="./assets/images/svg/avatar.svg" width="20"/>
       </a> -->
-      <a class="proName">Paulo</a>
+      <a class="proName">{{userName}}</a>
       <div class="dropdown">
 
         <a class="btn btn-primary dropdown-toggle proImgCont" data-toggle="dropdown">
-          
-          <img src="./assets/images/svg/avatar.svg" width="20" />
+
+          <img src="{{profileImg}}" width="20" />
         </a>
         <div class="dropdown-menu  dropdown-menu-right">
-          <div class="uploadProImg">
-            <a>Upload Profile Image</a>
-           <input type="file" />
-          </div>
-          <a class="dropdown-item logoutMenu"  title="Logout" (click)="logout()"><img src="./assets/images/logout.png" width="16" alt="logout"/> &nbsp;Logout</a>
+          <form [formGroup]="uploadForm">
+            <div class="uploadProImg">
+              <a>Carregar imagem de perfil</a>
+              <input type="file" name="profile" (change)="uploadprofilePictue($event)" />
+            </div>
+          </form>
+
+          <a class="dropdown-item logoutMenu" title="Logout" (click)="logout()"><img src="./assets/images/logout.png"
+              width="16" alt="logout" /> &nbsp;Sair</a>
 
         </div>
       </div>

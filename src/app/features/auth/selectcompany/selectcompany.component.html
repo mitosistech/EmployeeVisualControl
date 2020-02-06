@@ -10,23 +10,25 @@
       <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a>
     </div> -->
     <ul class="navBarList">
-      <li><a class="active">Home</a></li>
-      <li><a [routerLink]="['/managers']">Manager</a></li>
+      <li><a class="active">Casa</a></li>
+      <li><a [routerLink]="['/managers']">Gerente</a></li>
     </ul>
     <div class="hLogo">
-      <a class="proName">Paulo</a>
+      <!-- <a class="proName">Paulo</a> -->
+
       <div class="dropdown">
 
         <a class="btn btn-primary dropdown-toggle proImgCont" data-toggle="dropdown">
-          
+
           <img src="./assets/images/svg/avatar.svg" width="20" />
         </a>
         <div class="dropdown-menu  dropdown-menu-right">
-          <div class="uploadProImg">
+          <!-- <div class="uploadProImg">
             <a>Upload Profile Image</a>
            <input type="file" />
-          </div>
-          <a class="dropdown-item logoutMenu"  title="Logout" (click)="logout()"><img src="./assets/images/logout.png" width="16" alt="logout"/> &nbsp;Logout</a>
+          </div> -->
+          <a class="dropdown-item logoutMenu" title="Logout" (click)="logout()"><img src="./assets/images/logout.png"
+              width="16" alt="logout" /> &nbsp;Logout</a>
 
         </div>
       </div>
@@ -40,12 +42,12 @@
       <div class="scBox">
         <h3>Employee Visual Control</h3>
         <div class="selectCompany">
-   
+
           <select class="select-css" [(ngModel)]="businessId">
             <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
           </select>
         </div>
-        <button (click)="selectCompany(businessId)">SELECT</button>
+        <button (click)="selectCompany(businessId)">Gerente</button>
       </div>
     </div>
   </div>

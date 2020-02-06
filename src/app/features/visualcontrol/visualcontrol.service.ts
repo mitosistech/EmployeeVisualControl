@@ -75,4 +75,34 @@ export class VisualcontrolService {
       );
   }
 
+  public uploadProfileImage(id, formData): Observable<any> {
+
+    return this.http
+      .post(this.apiURL + "/managers/" + id + "/profile/image/upload", formData)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      );
+  }
+
+  public getCompanyLogo(businessUnitId): Observable<any> {
+    return this.http.get(this.apiURL + '/businessunits/' + businessUnitId, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
+
+  public profilePicture(userId, formData): Observable<any> {
+    return this.http
+      .post(this.apiURL + "/businessunits/" + userId + "/logo/upload", formData)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      );
+  }
+
+
 }

@@ -1,89 +1,99 @@
-<div class="managerListCont">
- 
-
-
-
-
-  <div class="addManagerCont">
-    
-      <div class="addManagerForm">
-        <form name="manager" >
-          <h2>Gerente</h2>
-          <div class="row">
-            <div class="col-xs-12 col-sm-8">
-              <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                  <div class="formCont">
-                    <label>Primeiro nome</label>
-                    <input type="text"  name="firstName"  required />
-                    
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="formCont">
-                    <label>Último nome</label>
-                    <input type="text" name="lastName"  required />
-                  
+<div class="addManagerCont">
+  <div class="container">
+    <div class="addManagerForm">
+      <form name="manager" #addManagerForm="ngForm" (ngSubmit)="createManager(managerModel)">
+        <h2>Gerente</h2>
+        <div class="row">
+          <div class="col-xs-12 col-sm-8">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="formCont">
+                  <label>Primeiro nome</label>
+                  <input type="text" #fname="ngModel" name="firstName" [(ngModel)]="managerModel.firstName" required />
+                  <div *ngIf="fname.errors && (fname.invalid && fname.touched)">
+                    <small class="text-danger" *ngIf="fname.errors.required">O primeiro nome é necessário</small>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                  <div class="formCont">
-                    <label>O email</label>
-                    <input type="text"  name="userName"
-                       required />
-                  
-  
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="formCont">
-                    <label>Select Company</label>
-                    <select>
-                      <option>Company</option>
-                    </select>
-                  
-  
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                  <div class="formCont">
-                    <label>Senha</label>
-                    <input type="password"  name="password"  required />
-                  
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="formCont">
-                    <label>Confirme a Senha</label>
-                    <input type="password"  name="confirmPassword"
-                      required />
-                  
+              <div class="col-xs-12 col-sm-6">
+                <div class="formCont">
+                  <label>Último nome</label>
+                  <input type="text" #lname="ngModel" name="lastName" [(ngModel)]="managerModel.lastName" required />
+                  <div *ngIf="lname.errors && (lname.invalid && lname.touched)">
+                    <small class="text-danger" *ngIf="lname.errors.required">O sobrenome é obrigatório</small>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="proPicture">
-                <p>Foto do perfil</p>
-                <div class="imgCont">
-                  <img src="./assets/images/user.png" width="120" />
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="formCont">
+                  <label>O email</label>
+                  <input type="text" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="userName"
+                    [(ngModel)]="managerModel.userName" required />
+                  <div *ngIf="email.errors && (email.invalid && email.touched)">
+                    <small class="text-danger" *ngIf="email.errors.required">E-mail é obrigatório</small>
+                    <small class="text-danger" *ngIf="email.errors.pattern">Digite um email válido</small>
+                  </div>
+
                 </div>
-                <a>
-                  <input type="file" name="user"  />
-                  Squeaky toy
-                </a>
               </div>
+              <div class="col-xs-12 col-sm-6 ">
+                <div class="mainContainer">
+                  <div class="scContainer">
+                    <div class="scBox">
+                      <h3>Selecionar empresa</h3>
+                      <div class="selectCompany">
+                        <select class="select-css" [(ngModel)]="managerModel.businessUnitId"
+                          [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
+                        </select>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="formCont">
+                  <label>Senha</label>
+                  <input type="password" #pwd="ngModel" name="password" [(ngModel)]="managerModel.password" required />
+                  <div *ngIf="pwd.errors && (pwd.invalid && pwd.touched)">
+                    <small class="text-danger" *ngIf="pwd.errors.required">Senha requerida</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="formCont">
+                  <label>Confirme a Senha</label>
+                  <input type="password" #cpwd="ngModel" name="confirmPassword"
+                    [(ngModel)]="managerModel.confirmPassword" required />
+                  <div *ngIf="cpwd.errors && (cpwd.invalid && cpwd.touched)">
+                    <small class="text-danger" *ngIf="cpwd.errors.required">confirme a senha é necessária</small>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-          <button type="submit" >ENVIAR</button>
-        </form>
-      </div>
-    
+          <!-- <div class="col-xs-12 col-sm-4">
+            <div class="proPicture">
+              <p>Foto do perfil</p>
+              <div class="imgCont">
+                <img src="./assets/images/user.png" width="120" />
+              </div>
+              <a>
+                <input type="file" name="user" [(ngModel)]="managerModel.user" />
+                Squeaky toy
+              </a>
+            </div>
+          </div> -->
+        </div>
+        <button type="submit" [disabled]="addManagerForm.form.invalid">ENVIAR</button>
+      </form>
+    </div>
   </div>
-
-
-  </div>
+</div>

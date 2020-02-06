@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
 
       if (result.data != null) {
         this.toastr.success('sucesso');
+        localStorage.setItem("userName", result.data.firstName);
+        localStorage.setItem("profileImg", result.data.imageUrl);
+        localStorage.setItem("loginUserId", result.data.id);
         if (result.data.superAdmin) {
           this.router.navigate(["/selectCompany"]);
         } else {

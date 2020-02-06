@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ManagersRoutingModule, ManagersRoutingComponents } from './managers-routing.module';
 import { AddManagersComponent } from './add-managers/add-managers.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,9 @@ import { AddManagersComponent } from './add-managers/add-managers.component';
   declarations: [ManagersRoutingComponents, AddManagersComponent],
   imports: [
     CommonModule,
-    ManagersRoutingModule
+    ManagersRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ManagersModule { }

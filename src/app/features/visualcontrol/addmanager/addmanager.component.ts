@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VisualcontrolService } from '../visualcontrol.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { SelectcompanyService } from '../../auth/selectcompany/selectcompany.service';
 
 @Component({
   selector: 'app-addmanager',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class AddmanagerComponent implements OnInit {
   public managerModel = {};
-  constructor(private service: VisualcontrolService, private toastr: ToastrService, public router: Router) { }
+  public companyList = [];
+  constructor(private service: VisualcontrolService, private toastr: ToastrService, public router: Router, private selectCompanyService: SelectcompanyService) { }
 
   ngOnInit() {
   }
@@ -26,4 +28,6 @@ export class AddmanagerComponent implements OnInit {
       }
     });
   }
+
+
 }

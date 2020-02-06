@@ -28,4 +28,8 @@ export class SelectcompanyComponent implements OnInit {
     }
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(["/login"]);
+  }
 }
