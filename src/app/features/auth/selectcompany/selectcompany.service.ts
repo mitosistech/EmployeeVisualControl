@@ -47,7 +47,7 @@ export class SelectcompanyService {
   public deleteManager(id): Observable<any> {
     return this.http.delete(this.apiURL + '/managers/' + id, this.httpOptions).pipe(
       map((response) => {
-        return response;
+        return JSON.stringify(response);
       })
     );
   }

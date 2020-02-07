@@ -37,7 +37,7 @@ export class ManagerListComponent implements OnInit {
   deleteManager(id) {
     this.service.deleteManager(id).subscribe(res => {
       if (res) {
-        this.toastr.success("Manager successfully deleted");
+        this.toastr.success("Gerente excluído com sucesso");
         this.getManagerList();
       }
     });

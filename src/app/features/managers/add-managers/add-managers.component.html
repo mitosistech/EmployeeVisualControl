@@ -93,7 +93,9 @@
           </div> -->
         </div>
         <button type="submit" [class.invalidBtn]="addManagerForm.form.invalid"
-          [disabled]="addManagerForm.form.invalid">ENVIAR</button>
+          [disabled]="addManagerForm.form.invalid">ENVIAR</button> &nbsp;&nbsp;
+
+        <button type="button" [routerLink]="['/managers']">Cancelar</button>
       </form>
     </div>
   </div>
