@@ -15,11 +15,18 @@ export class HomeComponent implements OnInit {
   public companyId;
 
   public loaderFlag = false;
+  public role: any;
 
   private removeIdList = [];
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
     this.companyId = this.route.snapshot.paramMap.get('businessId');
+    let str = localStorage.getItem("role");
+    if (str == "false") {
+      this.role = false;
+    } else {
+      this.role = true;
+    }
     this.getListOfLocationByBusinessId(businessId);
     // this.renderMap();
   }

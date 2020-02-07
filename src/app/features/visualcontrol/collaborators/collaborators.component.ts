@@ -17,19 +17,29 @@ export class CollaboratorsComponent implements OnInit {
   public clientsId;
   public customer;
   public loaderFlag = false;
+  public role: any;
   ngOnInit() {
     let customerId = this.route.snapshot.paramMap.get('customerId');
     this.clientsId = this.route.snapshot.paramMap.get('customerId');
     this.companyId = this.route.snapshot.paramMap.get('companyId');
     this.stateCode = this.route.snapshot.paramMap.get('stateCode');
+
+    let str = localStorage.getItem("role");
+    if (str == "false") {
+      this.role = false;
+    } else {
+      this.role = true;
+    }
     this.getCollaborators(customerId);
   }
 
   navTolocation() {
-    this.router.navigate(["/vc/home/" + this.customer.businessUnitId]);
+    let businessid = localStorage.getItem("businessid");
+    this.router.navigate(["/vc/home/" + businessid]);
   }
   navToClients() {
-    this.router.navigate(["/vc/clients/" + this.customer.businessUnitId + "/" + this.stateCode]);
+    let businessid = localStorage.getItem("businessid");
+    this.router.navigate(["/vc/clients/" + businessid + "/" + this.stateCode]);
   }
 
 

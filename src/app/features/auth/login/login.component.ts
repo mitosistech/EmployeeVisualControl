@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("userName", result.data.firstName);
         localStorage.setItem("profileImg", result.data.imageUrl);
         localStorage.setItem("loginUserId", result.data.id);
+        localStorage.setItem("role", result.data.superAdmin);
         if (result.data.superAdmin) {
           this.router.navigate(["/selectCompany"]);
         } else {

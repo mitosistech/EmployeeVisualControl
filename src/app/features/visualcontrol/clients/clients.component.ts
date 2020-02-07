@@ -13,11 +13,18 @@ export class ClientsComponent implements OnInit {
   public companyId;
   public norecordFound = false;
   public loaderFlag = false;
+  public role: any;
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   ngOnInit() {
     let locationId = this.route.snapshot.paramMap.get('locationId');
     this.companyId = this.route.snapshot.paramMap.get('businessId');
     this.stateCode = this.route.snapshot.paramMap.get('stateCode');
+    let str = localStorage.getItem("role");
+    if (str == "false") {
+      this.role = false;
+    } else {
+      this.role = true;
+    }
     this.getCustomerList();
   }
   navToClients() {

@@ -10,10 +10,17 @@ import { Router } from '@angular/router';
 export class SelectcompanyComponent implements OnInit {
   public companyList = [];
   public loaderFlag = false;
+  public role: any;
   constructor(private service: SelectcompanyService, public router: Router) { }
 
   ngOnInit() {
     this.getCompanyList();
+    let str = localStorage.getItem("role");
+    if (str == "false") {
+      this.role = false;
+    } else {
+      this.role = true;
+    }
   }
 
   getCompanyList() {

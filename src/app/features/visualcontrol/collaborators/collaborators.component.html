@@ -121,8 +121,8 @@
   </div>
   <div class="mainCont">
     <h1>Controle visual do funcionário</h1>
-    <p><a [routerLink]="['/selectCompany']">Casa</a> > <a (click)="navTolocation()">Clientes por localização</a> > <a
-        (click)="navToClients()">clientes</a> > <span>Contribuidoras</span></p>
+    <p><a *ngIf="role" [routerLink]="['/selectCompany']">Casa</a> > <a (click)="navTolocation()">Clientes por
+        localização</a> > <a (click)="navToClients()">clientes</a> > <span>Contribuidoras</span></p>
     <div class="contBox">
       <h2>Contribuidoras</h2>
       <table>
