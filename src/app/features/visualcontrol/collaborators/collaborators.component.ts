@@ -12,7 +12,7 @@ export class CollaboratorsComponent implements OnInit {
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   public collaboratorsList = [];
   public stateCode: any;
-
+  public norecordFound = false;
   public companyId;
   public clientsId;
   public customer;
@@ -38,6 +38,11 @@ export class CollaboratorsComponent implements OnInit {
       if (res != null) {
         this.customer = res.data.customer;
         this.collaboratorsList = res.data.collaborators;
+        if (this.collaboratorsList.length == 0) {
+          this.norecordFound = true;
+        }
+      } else {
+        this.norecordFound = true;
       }
     });
   }

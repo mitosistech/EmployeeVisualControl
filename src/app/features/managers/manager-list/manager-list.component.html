@@ -1,7 +1,7 @@
 <div class="managerListCont">
   <div class="dFlex">
-    <h2>Managers</h2>
-    <a (click)="routeToManagerCreation()">Add Managers</a>
+    <h2>Gerentes</h2>
+    <a (click)="routeToManagerCreation()">Adicionar gerentes</a>
   </div>
 
 
@@ -9,12 +9,12 @@
   <table>
     <thead>
       <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
+        <th>Primeiro nome</th>
+        <th>Último nome</th>
+        <th>O email</th>
 
-        <th>Company</th>
-        <th>Actions</th>
+        <th>Companhia</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody *ngFor="let manager of managerList;">

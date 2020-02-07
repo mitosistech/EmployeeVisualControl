@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VisualcontrolRoutingModule,
     FormsModule,
     ReactiveFormsModule
+
   ]
 })
 export class VisualcontrolModule { }

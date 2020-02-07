@@ -120,21 +120,21 @@
   </div>
   <div class="mainCont">
     <h1>Employee Visual Control</h1>
-    <p><a [routerLink]="['/selectCompany']">Home</a> > <a (click)="navTolocation()">Clients by location</a> > <a
-           (click)="navToClients()">Customers</a> > <span>Collaborators</span></p>
+    <p><a [routerLink]="['/selectCompany']">Casa</a> > <a (click)="navTolocation()">Clientes por localização</a> > <a
+        (click)="navToClients()">clientes</a> > <span>Contribuidoras</span></p>
     <div class="contBox">
-      <h2>Collaborators</h2>
+      <h2>Contribuidoras</h2>
       <table>
         <thead>
           <tr>
-            <th>Collaborator</th>
+            <th>Colaboradora</th>
             <th class="text-center">Alers</th>
             <th>Status</th>
-            <th>Locale</th>
-            <th>Responsible</th>
+            <th>Endereço</th>
+            <th>Responsável</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="!norecordFound">
           <tr *ngFor="let collaborator of collaboratorsList;">
             <td>{{collaborator.name}}</td>
             <td class="text-center">
@@ -145,9 +145,12 @@
             </td>
             <td>{{collaborator.status}}</td>
             <td>{{collaborator.address.stateName}}</td>
-            <td>
+            <!-- <td>
               {{collaborator.resonsible}}({{collaborator.responsiblePersonName}} -
               {{collaborator.responsiblePersonPhoneNo}})
+            </td> -->
+            <td>
+              {{collaborator.responsiblePersonName}}
             </td>
           </tr>
           <!-- <tr>
@@ -173,6 +176,9 @@
             <td>Supervisor-(Contato)</td>
           </tr> -->
         </tbody>
+        <div *ngIf="norecordFound">
+          <span>Nenhuma gravação encontrada</span>
+        </div>
       </table>
 
       <!-- <button class="largeBtn">Record Occurrence</button> -->

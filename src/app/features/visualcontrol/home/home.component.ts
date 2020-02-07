@@ -41,18 +41,18 @@ export class HomeComponent implements OnInit {
           if (res.data.locations[i].address.stateId) {
             var temp = "PM-" + res.data.locations[i].address.stateId;
             var svg = document.getElementById(temp);
-            if (res.data.locations[i].statusCode == 1 || res.data.locations[i].statusCode == 2) {
+            if (res.data.locations[i].status != null && (res.data.locations[i].status.code == 1 || res.data.locations[i].status.code == 2)) {
               svg.setAttribute("fill", "green");
-            } else if (res.data.locations[i].statusCode == 3 || res.data.locations[i].statusCode == 7) {
+            } else if (res.data.locations[i].status != null && (res.data.locations[i].status.code == 3 || res.data.locations[i].status.code == 7)) {
               svg.setAttribute("fill", "red");
 
-            } else if (res.data.locations[i].statusCode == 4 || res.data.locations[i].statusCode == 8) {
+            } else if (res.data.locations[i].status != null && (res.data.locations[i].status.code == 4 || res.data.locations[i].status.code == 8)) {
               svg.setAttribute("fill", "yellow");
-            } else if (res.data.locations[i].statusCode == 5 || res.data.locations[i].statusCode == 6) {
+            } else if (res.data.locations[i].status != null && (res.data.locations[i].status.code == 5 || res.data.locations[i].status.code == 6)) {
               svg.setAttribute("fill", "gray");
             } else {
-              //svg.setAttribute("fill", "white");
-              svg.removeAttribute("circle");
+              svg.setAttribute("fill", "black");
+              // svg.removeAttribute("circle");
             }
             this.removeIdList.push(temp.trim());
           }

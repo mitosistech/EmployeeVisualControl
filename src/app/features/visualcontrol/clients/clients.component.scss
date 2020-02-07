@@ -141,22 +141,22 @@
               font-size:14px;
               font-weight: 400;
               line-height: 18px;
-              span{
+              p{
                 width:15px;
                 height:15px;
                 border-radius:50%;
                 display: inline-block;
               }
-             span.green{
+             p.green{
                 background-color: #1dab24;
               }
-              span.red{
+              p.red{
                 background-color: #f80000;
               }
-              span.gray{
+              p.gray{
                  background-color: #d6d6d6;
               }
-              span.yellow{
+              p.yellow{
                  background-color: #dff709;
               }
             }

@@ -28,7 +28,7 @@
            <input type="file" />
           </div> -->
           <a class="dropdown-item logoutMenu" title="Logout" (click)="logout()"><img src="./assets/images/logout.png"
-              width="16" alt="logout" /> &nbsp;Logout</a>
+              width="16" alt="logout" /> &nbsp;Sair</a>
 
         </div>
       </div>
@@ -40,14 +40,14 @@
   <div class="mainContainer">
     <div class="scContainer">
       <div class="scBox">
-        <h3>Employee Visual Control</h3>
+        <h3>Controle visual do funcionário</h3>
         <div class="selectCompany">
 
           <select class="select-css" [(ngModel)]="businessId">
             <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
           </select>
         </div>
-        <button (click)="selectCompany(businessId)">Gerente</button>
+        <button (click)="selectCompany(businessId)">OK</button>
       </div>
     </div>
   </div>

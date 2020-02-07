@@ -82,13 +82,24 @@ export class VisualcontrolComponent implements OnInit {
     formData.append('file', this.uploadForm.get('profile').value);
     this.service.uploadProfileImage(loginUserId, formData).subscribe(res => {
       if (res != null) {
+        let result = JSON.parse(res);
         this.toastr.success("Carregamento da imagem do perfil com sucesso");
-        localStorage.setItem("", res.data.imageUrl);
+        localStorage.setItem("profileImg", result.data.imageUrl);
+        this.profileImg = result.data.imageUrl;
+        this.reload();
       }
     });
   }
   logout() {
     localStorage.clear();
     this.router.navigate(["/login"]);
+  }
+
+  reload() {
+    if (this.router.url) {
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+        return false;
+      };
+    }
   }
 }

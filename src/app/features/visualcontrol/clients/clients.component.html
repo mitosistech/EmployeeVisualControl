@@ -116,32 +116,39 @@
 
   </div>
   <div class="mainCont">
-    <h1>Employee Visual Control</h1>
-    <p><a [routerLink]="['/selectCompany']">Home</a> > <a (click)="navToClients()">Clientes por localização</a> >
-      <span>clientes</span></p>
+    <h1>Controle visual do funcionário</h1>
+    <p><a [routerLink]="['/selectCompany']">Casa</a> ><a (click)="navToClients()">Clientes por localização</a> >
+      <span>Clientes</span></p>
     <div class="contBox">
-      <h2>clientes</h2>
+      <h2>Clientes</h2>
       <table [routerLink]="['/vc/collaborators']">
         <thead>
           <tr>
-            <th>Client</th>
+            <th>Cliente</th>
             <th class="text-center">Alers</th>
             <th>Status</th>
-            <th>Locale</th>
+            <th>Endereço</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="!norecordFound">
           <tr *ngFor="let customer of customerList;">
             <td (click)="routeToCollabratorPage(customer.id)">{{customer.name}}</td>
             <td class="text-center">
-              <span class="green" *ngIf="customer.statusCode==1||customer.statusCode==2"></span>
-              <span class="red" *ngIf="customer.statusCode==3||customer.statusCode==7"></span>
-              <span class="yellow" *ngIf="customer.statusCode==4|| customer.statusCode==8"></span>
-              <span class="gray" *ngIf="customer.statusCode==5|| customer.statusCode==6"></span>
+              <div *ngFor="let status of customer.statusList;">
+                <p class="green" *ngIf="status.code==1||status.code==2"></p>
+                <p class="red" *ngIf="status.code==3||status.code==7"></p>
+                <p class="yellow" *ngIf="status.code==4|| status.code==8"></p>
+                <p class="gray" *ngIf="status.code==5|| status.code==6"></p>
+              </div>
             </td>
-            <td>{{customer.status}}</td>
+            <td>
+              <div *ngFor="let statDesc of customer.statusList;">
+                <p>{{statDesc.value}}</p>
+              </div>
+            </td>
             <td>{{customer.address.stateName}}</td>
           </tr>
+
           <!-- <tr>
             <td>Cliente 02</td>
             <td  class="text-center"><span class="occurrence"></span></td>
@@ -167,6 +174,9 @@
             <td>Address</td>
           </tr> -->
         </tbody>
+        <div *ngIf="norecordFound">
+          <span>Nenhuma gravação encontrada</span>
+        </div>
       </table>
     </div>
   </div>

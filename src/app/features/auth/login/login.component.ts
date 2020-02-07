@@ -32,8 +32,10 @@ export class LoginComponent implements OnInit {
         if (result.data.superAdmin) {
           this.router.navigate(["/selectCompany"]);
         } else {
-          this.router.navigate(["/vc/home/" + result.data.business_unit_id]);
+          this.router.navigate(["/vc/home/" + result.data.businessUnitId]);
           // localStorage.setItem("companyName", result.employee_name);
+
+          localStorage.setItem("businessid", result.data.businessUnitId);
         }
       } else {
         this.toastr.error('falha no login, tente novamente');
