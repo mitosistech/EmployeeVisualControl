@@ -249,3 +249,8 @@
 .hLogo .dropdown-toggle::after{
   display: none;
 }
+
+.invalidBtn{
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+}

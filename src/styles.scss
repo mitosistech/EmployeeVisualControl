@@ -141,7 +141,14 @@ table tbody tr:hover{
 }
 
 .app-loading{
-  background-color:#FFFFFF; top:0px; position:absolute; width:100%; height:100%; display:flex; justify-content: center;  align-items: center;
+  background-color: rgba(0,0,0,0.1) !important; 
+  top:0px; position:fixed !important ; 
+  width:100%;
+   height:100vh; 
+   display:flex; 
+   justify-content: center;  
+   align-items: center;
+   left:0px;
 }
 
 

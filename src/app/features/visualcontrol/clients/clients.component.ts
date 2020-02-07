@@ -12,6 +12,7 @@ export class ClientsComponent implements OnInit {
   public stateCode: any;
   public companyId;
   public norecordFound = false;
+  public loaderFlag = false;
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   ngOnInit() {
     let locationId = this.route.snapshot.paramMap.get('locationId');
@@ -23,7 +24,9 @@ export class ClientsComponent implements OnInit {
     this.router.navigate(["/vc/home/" + this.companyId]);
   }
   getCustomerList() {
+    this.loaderFlag = true;
     this.service.getCustomerList(this.companyId, this.stateCode).subscribe(res => {
+      this.loaderFlag = false;
       if (res != null) {
         this.customerList = res.data.customers;
 
@@ -33,6 +36,7 @@ export class ClientsComponent implements OnInit {
       } else {
         this.norecordFound = true;
       }
+
     });
   }
 

@@ -66,7 +66,7 @@ export class VisualcontrolComponent implements OnInit {
     let businessid = localStorage.getItem("businessid");
     this.service.getCompanyLogo(businessid).subscribe(res => {
       if (res != null) {
-        this.toastr.success("Logotipo enviado com sucesso");
+        //this.toastr.success("Logotipo enviado com sucesso");
         this.setCompanyLogo(res.data.business.name, res.data.business.logoUrl);
       }
     });

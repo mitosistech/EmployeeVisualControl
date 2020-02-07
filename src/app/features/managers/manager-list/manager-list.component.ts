@@ -12,6 +12,7 @@ export class ManagerListComponent implements OnInit {
 
   constructor(public router: Router, private service: SelectcompanyService, private toastr: ToastrService) { }
   public managerList = [];
+  public loaderFlag = false;
   ngOnInit() {
     this.getManagerList();
   }
@@ -24,12 +25,13 @@ export class ManagerListComponent implements OnInit {
 
   getManagerList() {
     let data = {};
+    this.loaderFlag = true;
     this.service.getAllManager(data).subscribe(res => {
+      this.loaderFlag = false;
       let respose = JSON.parse(res);
       if (respose) {
         this.managerList = respose.data.managers;
       }
-
     });
   }
   deleteManager(id) {
@@ -38,7 +40,6 @@ export class ManagerListComponent implements OnInit {
         this.toastr.success("Manager successfully deleted");
         this.getManagerList();
       }
-
     });
   }
 }

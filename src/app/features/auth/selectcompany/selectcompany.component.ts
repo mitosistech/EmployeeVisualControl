@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SelectcompanyComponent implements OnInit {
   public companyList = [];
+  public loaderFlag = false;
   constructor(private service: SelectcompanyService, public router: Router) { }
 
   ngOnInit() {
@@ -16,8 +17,10 @@ export class SelectcompanyComponent implements OnInit {
   }
 
   getCompanyList() {
+    this.loaderFlag = true;
     this.service.getCompanyList().subscribe(res => {
       this.companyList = res[0].business_units;
+      this.loaderFlag = false;
     });
   }
 

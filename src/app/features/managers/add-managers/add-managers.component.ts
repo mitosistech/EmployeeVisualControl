@@ -16,6 +16,7 @@ export class AddManagersComponent implements OnInit {
   public userId: any;
   public managerList = [];
   public editFlag = false;
+  public loaderFlag = false;
   constructor(private route: ActivatedRoute, private service: VisualcontrolService, private toastr: ToastrService, public router: Router, private selectCompanyService: SelectcompanyService) { }
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get('userId');
@@ -49,7 +50,7 @@ export class AddManagersComponent implements OnInit {
   }
 
   editManager(userId) {
-
+    this.loaderFlag = true;
     this.selectCompanyService.getByUserId(userId).subscribe(res => {
       let model = {
         "firstName": res.data.manager.firstName,
@@ -61,6 +62,7 @@ export class AddManagersComponent implements OnInit {
 
       }
       this.managerModel = model;
+      this.loaderFlag = false;
     });
   }
 

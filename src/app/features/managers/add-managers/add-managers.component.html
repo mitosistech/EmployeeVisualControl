@@ -92,8 +92,14 @@
             </div>
           </div> -->
         </div>
-        <button type="submit" [disabled]="addManagerForm.form.invalid">ENVIAR</button>
+        <button type="submit" [class.invalidBtn]="addManagerForm.form.invalid"
+          [disabled]="addManagerForm.form.invalid">ENVIAR</button>
       </form>
     </div>
   </div>
+</div>
+
+<div *ngIf="loaderFlag" class="app-loading" style="background-color:#FFFFFF; top:0px; position:absolute; width:100%; height:100%; display:flex; justify-content: center;
+    align-items: center">
+  <img src="assets/images/loader.gif" />
 </div>

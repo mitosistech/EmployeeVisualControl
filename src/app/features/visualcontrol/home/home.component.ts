@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   public locationCoordinates = [];
   public companyId;
 
+  public loaderFlag = false;
+
   private removeIdList = [];
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
@@ -32,7 +34,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/vc/clients/" + locationId]);
   }
   getListOfLocationByBusinessId(businessId) {
-
+    this.loaderFlag = true;
     this.service.getLocation(businessId).subscribe(res => {
       if (res.data.locations != null && res.data.locations != null && res.data.locations.length != 0) {
         //  this.visualcontrolComponent.setCompanyLogo(res.data.business.name, res.data.business.logoSmallUrl);
@@ -59,6 +61,7 @@ export class HomeComponent implements OnInit {
         }
         this.removeCircle(this.removeIdList);
         //  this.loadMap();
+        this.loaderFlag = false;
       }
     });
 

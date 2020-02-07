@@ -109,6 +109,7 @@
         <li><a class="red"><span></span>Ausente/Atrasado</a></li>
         <li><a class="yellow"><span></span>Em jornada extra/Trabalhando em dia de folga</a></li>
         <li><a class="gray"><span></span>Expediente encerrado/De folga</a></li>
+        <li><a class="black"><span></span>Não disponível</a></li>
       </ul>
 
     </div>
@@ -140,10 +141,14 @@
                 <p class="yellow" *ngIf="status.code==4|| status.code==8"></p>
                 <p class="gray" *ngIf="status.code==5|| status.code==6"></p>
               </div>
+              <p class="black" *ngIf="customer.statusList.length==0"></p>
             </td>
             <td>
               <div *ngFor="let statDesc of customer.statusList;">
                 <p>{{statDesc.value}}</p>
+              </div>
+              <div *ngIf="customer.statusList.length==0">
+                <p>Não disponível</p>
               </div>
             </td>
             <td>{{customer.address.stateName}}</td>
@@ -180,4 +185,9 @@
       </table>
     </div>
   </div>
+</div>
+
+<div *ngIf="loaderFlag" class="app-loading" style="background-color:#FFFFFF; top:0px; position:absolute; width:100%; height:100%; display:flex; justify-content: center;
+    align-items: center">
+  <img src="assets/images/loader.gif" />
 </div>

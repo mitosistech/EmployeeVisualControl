@@ -16,6 +16,7 @@ export class CollaboratorsComponent implements OnInit {
   public companyId;
   public clientsId;
   public customer;
+  public loaderFlag = false;
   ngOnInit() {
     let customerId = this.route.snapshot.paramMap.get('customerId');
     this.clientsId = this.route.snapshot.paramMap.get('customerId');
@@ -33,8 +34,9 @@ export class CollaboratorsComponent implements OnInit {
 
 
   getCollaborators(customerId) {
-
+    this.loaderFlag = true;
     this.service.getCollaborators(customerId).subscribe(res => {
+      this.loaderFlag = true;
       if (res != null) {
         this.customer = res.data.customer;
         this.collaboratorsList = res.data.collaborators;
@@ -44,6 +46,7 @@ export class CollaboratorsComponent implements OnInit {
       } else {
         this.norecordFound = true;
       }
+
     });
   }
 }
