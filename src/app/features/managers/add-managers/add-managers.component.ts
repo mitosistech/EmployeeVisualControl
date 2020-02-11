@@ -33,7 +33,7 @@ export class AddManagersComponent implements OnInit {
 
     this.service.createManager(data).subscribe(res => {
       if (res != null) {
-        this.toastr.success("Gerente de sucesso criado");
+        this.toastr.success("Usuário atualizado com sucesso!");
         this.router.navigate(["/managers"]);
       } else {
         this.toastr.error("Falhou");

@@ -21,7 +21,7 @@ export class AddmanagerComponent implements OnInit {
     data.businessUnitId = localStorage.getItem("businessid");
     this.service.createManager(data).subscribe(res => {
       if (res != null) {
-        this.toastr.success("Gerente de sucesso criado");
+        this.toastr.success("Usuário atualizado com sucesso!");
         this.router.navigate(["/selectCompany"]);
       } else {
         this.toastr.error("Falhou");

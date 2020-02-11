@@ -28,7 +28,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="formCont">
-                  <label>O email</label>
+                  <label>Email</label>
                   <input type="text" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="userName"
                     [(ngModel)]="managerModel.userName" required />
                   <div *ngIf="email.errors && (email.invalid && email.touched)">
@@ -72,7 +72,7 @@
                   <input type="password" #cpwd="ngModel" name="confirmPassword"
                     [(ngModel)]="managerModel.confirmPassword" required />
                   <div *ngIf="cpwd.errors && (cpwd.invalid && cpwd.touched)">
-                    <small class="text-danger" *ngIf="cpwd.errors.required">confirme a senha é necessária</small>
+                    <small class="text-danger" *ngIf="cpwd.errors.required">Conﬁrme sua senha</small>
                   </div>
                 </div>
               </div>
