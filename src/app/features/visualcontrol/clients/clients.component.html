@@ -120,7 +120,7 @@
     <h1>Controle visual do funcionário</h1>
     <p><a *ngIf="role" [routerLink]="['/selectCompany']">Home</a> ><a (click)="navToClients()">Clientes por
         localização</a> >
-      <span>Clientes</span></p>
+      <span>Clientes( {{stateCode|uppercase}} )</span></p>
     <div class="contBox">
       <h2>Clientes</h2>
       <table [routerLink]="['/vc/collaborators']">

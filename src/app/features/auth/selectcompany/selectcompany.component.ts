@@ -11,10 +11,12 @@ export class SelectcompanyComponent implements OnInit {
   public companyList = [];
   public loaderFlag = false;
   public role: any;
+  public businessid: any;
   constructor(private service: SelectcompanyService, public router: Router) { }
 
   ngOnInit() {
     this.getCompanyList();
+
     let str = localStorage.getItem("role");
     if (str == "false") {
       this.role = false;
@@ -28,7 +30,10 @@ export class SelectcompanyComponent implements OnInit {
     this.service.getCompanyList().subscribe(res => {
       this.companyList = res[0].business_units;
       this.loaderFlag = false;
+      // this.businessid = this.companyList[0].id;
+      // console.log(this.businessid);
     });
+
   }
 
   selectCompany(businessid) {

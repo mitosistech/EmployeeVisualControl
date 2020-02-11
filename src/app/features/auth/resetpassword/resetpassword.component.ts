@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ResetpasswordComponent implements OnInit {
   public resetModel = {};
   private uniqueId;
+  public loaderFlag = false;
   constructor(private service: LoginService, public router: Router, private toastr: ToastrService, private route: ActivatedRoute) { }
   ngOnInit() {
     this.uniqueId = this.route.snapshot.paramMap.get('uniqueId');
@@ -22,12 +23,19 @@ export class ResetpasswordComponent implements OnInit {
       "confirmPassword": data.confirmPassword,
       "uId": this.uniqueId
     };
+
+    if (data.password != data.confirmPassword) {
+      this.toastr.error("A senha e a confirmação da senha não correspondem");
+      return;
+    }
     // request = data;
     //request.uId = this.uniqueId;
+    this.loaderFlag = true;
     this.service.resetPassword(request).subscribe(res => {
       //let result = JSON.parse(res);
+      this.loaderFlag = false;
       if (res) {
-        this.router.navigate(["/"]);
+        this.router.navigate(["/login"]);
       }
 
     });

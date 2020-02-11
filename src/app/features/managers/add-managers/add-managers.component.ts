@@ -31,6 +31,10 @@ export class AddManagersComponent implements OnInit {
       data.id = this.userId;
     }
 
+    if (data.password != data.confirmPassword) {
+      this.toastr.error("A senha e a confirmação da senha não correspondem");
+      return;
+    }
     this.service.createManager(data).subscribe(res => {
       if (res != null) {
         this.toastr.success("Usuário atualizado com sucesso!");

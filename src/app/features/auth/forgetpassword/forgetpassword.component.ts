@@ -9,14 +9,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./forgetpassword.component.scss']
 })
 export class ForgetpasswordComponent implements OnInit {
-
+  public loaderFlag = false;
   constructor(private service: LoginService, public router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
   forgotPassword(userName) {
+    this.loaderFlag = true;
     this.service.verifyMail(null, userName).subscribe(res => {
+      this.loaderFlag = false;
       let result = JSON.parse(res);
       this.toastr.success("Link sent your mail..! Please check it");
       this.router.navigate(['/login']);

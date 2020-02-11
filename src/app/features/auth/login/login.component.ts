@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   public userModel = {};
+  public loaderFlag = false;
   constructor(private service: LoginService, public router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -20,10 +21,10 @@ export class LoginComponent implements OnInit {
     if (!data) {
       return;
     }
-
+    this.loaderFlag = true;
     this.service.login(data).subscribe(res => {
       let result = JSON.parse(res);
-
+      this.loaderFlag = false;
       if (result.data != null) {
         this.toastr.success('sucesso');
         localStorage.setItem("userName", result.data.firstName);

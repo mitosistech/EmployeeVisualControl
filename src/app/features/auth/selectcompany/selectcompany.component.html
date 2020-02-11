@@ -44,7 +44,12 @@
         <div class="selectCompany">
 
           <select class="select-css" [(ngModel)]="businessId">
-            <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
+
+            <option [selected]="true" [ngValue]="title" disabled>--Selecionar lista de empresas--</option>
+            <option *ngFor="let company of companyList; index as i" value="{{company.id}}">
+              {{company.name}}
+            </option>
+
           </select>
         </div>
         <button (click)="selectCompany(businessId)">OK</button>
