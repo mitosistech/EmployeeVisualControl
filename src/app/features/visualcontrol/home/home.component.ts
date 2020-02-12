@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   public loaderFlag = false;
   public role: any;
-
+  public companyName: any;
   private removeIdList = [];
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
@@ -45,6 +45,8 @@ export class HomeComponent implements OnInit {
     this.service.getLocation(businessId).subscribe(res => {
       if (res.data.locations != null && res.data.locations != null && res.data.locations.length != 0) {
         //  this.visualcontrolComponent.setCompanyLogo(res.data.business.name, res.data.business.logoSmallUrl);
+        this.companyName = res.data.business.name;
+        localStorage.setItem("companyName", this.companyName);
         for (let i = 0; i < res.data.locations.length; i++) {
 
           if (res.data.locations[i].address.stateId) {

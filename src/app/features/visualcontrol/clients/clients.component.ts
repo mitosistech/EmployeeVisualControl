@@ -14,6 +14,7 @@ export class ClientsComponent implements OnInit {
   public norecordFound = false;
   public loaderFlag = false;
   public role: any;
+  public companyName: any;
   constructor(private service: VisualcontrolService, private route: ActivatedRoute, public router: Router) { }
   ngOnInit() {
     let locationId = this.route.snapshot.paramMap.get('locationId');
@@ -26,6 +27,7 @@ export class ClientsComponent implements OnInit {
       this.role = true;
     }
     this.getCustomerList();
+    this.companyName = localStorage.getItem("companyName");
   }
   navToClients() {
     this.router.navigate(["/vc/home/" + this.companyId]);
@@ -47,7 +49,8 @@ export class ClientsComponent implements OnInit {
     });
   }
 
-  routeToCollabratorPage(customerId) {
+  routeToCollabratorPage(customerId, customerName) {
+    localStorage.setItem("customerName", customerName);
     this.router.navigate(["/vc/collaborators/" + customerId + "/" + this.stateCode]);
   }
 

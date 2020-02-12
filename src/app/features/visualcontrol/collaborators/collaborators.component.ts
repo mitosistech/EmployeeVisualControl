@@ -18,12 +18,15 @@ export class CollaboratorsComponent implements OnInit {
   public customer;
   public loaderFlag = false;
   public role: any;
+  public companyName: any;
+  public customerName: any;
   ngOnInit() {
     let customerId = this.route.snapshot.paramMap.get('customerId');
     this.clientsId = this.route.snapshot.paramMap.get('customerId');
     this.companyId = this.route.snapshot.paramMap.get('companyId');
     this.stateCode = this.route.snapshot.paramMap.get('stateCode');
-
+    this.customerName = localStorage.getItem("customerName");
+    this.companyName = localStorage.getItem("companyName");
     let str = localStorage.getItem("role");
     if (str == "false") {
       this.role = false;

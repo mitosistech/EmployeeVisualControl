@@ -118,9 +118,10 @@
   </div>
   <div class="mainCont">
     <h1>Controle visual do funcionário</h1>
-    <p><a *ngIf="role" [routerLink]="['/selectCompany']">Home</a> ><a (click)="navToClients()">Clientes por
-        localização</a> >
-      <span>Clientes( {{stateCode|uppercase}} )</span></p>
+    <p><a *ngIf="role" [routerLink]="['/selectCompany']">Home ({{companyName}})</a> ><a
+        (click)="navToClients()">Clientes por
+        localização( {{stateCode|uppercase}} )</a> >
+      <span>Clientes</span></p>
     <div class="contBox">
       <h2>Clientes</h2>
       <table [routerLink]="['/vc/collaborators']">
@@ -134,7 +135,7 @@
         </thead>
         <tbody *ngIf="!norecordFound">
           <tr *ngFor="let customer of customerList;">
-            <td (click)="routeToCollabratorPage(customer.id)">{{customer.name}}</td>
+            <td (click)="routeToCollabratorPage(customer.id,customer.name)">{{customer.name}}</td>
             <td class="text-center">
               <div *ngFor="let status of customer.statusList;">
                 <p class="green" *ngIf="status.code==1||status.code==2"></p>

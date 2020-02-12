@@ -11,7 +11,7 @@
       <tr>
         <th>Primeiro nome</th>
         <th>Último nome</th>
-        <th>O email</th>
+        <th>Email</th>
 
         <th>Companhia</th>
         <th>Ações</th>
@@ -20,11 +20,11 @@
     <tbody *ngFor="let manager of managerList;">
 
       <tr>
-        <td>{{manager.firstName}}</td>
-        <td>{{manager.lastName}}</td>
-        <td>{{manager.email}}</td>
+        <td>{{manager.firstName?manager.firstName:'NA'}}</td>
+        <td>{{manager.lastName?manager.lastName:'NA'}}</td>
+        <td>{{manager.email?manager.email:'NA'}}</td>
 
-        <td>{{manager.business.name}}</td>
+        <td>{{manager.business?manager.business.name:'NA'}}</td>
         <td>
           <a class="editIcon" (click)="routeToEditManger(manager.id)" title="edit"><img
               src="./assets/images/svg/pencil.svg" width="20" /></a>
