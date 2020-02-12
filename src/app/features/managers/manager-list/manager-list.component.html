@@ -28,8 +28,8 @@
         <td>
           <a class="editIcon" (click)="routeToEditManger(manager.id)" title="edit"><img
               src="./assets/images/svg/pencil.svg" width="20" /></a>
-          <!-- <a title="Delete" (click)="deleteManager(manager.id)"><img src="./assets/images/svg/quit.svg"
-              width="20" /></a> -->
+          <a *ngIf="!manager.superAdmin" title="Delete" (click)="deleteManager(manager.id)"><img
+              src="./assets/images/svg/quit.svg" width="20" /></a>
         </td>
       </tr>
 

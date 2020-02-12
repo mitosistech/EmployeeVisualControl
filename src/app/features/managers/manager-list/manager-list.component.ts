@@ -34,6 +34,7 @@ export class ManagerListComponent implements OnInit {
       }
     });
   }
+
   deleteManager(id) {
     this.service.deleteManager(id).subscribe(res => {
       if (res) {
