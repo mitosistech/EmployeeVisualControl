@@ -26,6 +26,7 @@ export class AddManagersComponent implements OnInit {
   }
 
   createManager(data) {
+
     //  data.businessUnitId = localStorage.getItem("businessid");
     if (this.userId != 0) {
       data.id = this.userId;
@@ -35,7 +36,9 @@ export class AddManagersComponent implements OnInit {
       this.toastr.error("A senha e a confirmação da senha não correspondem");
       return;
     }
+    this.loaderFlag = true;
     this.service.createManager(data).subscribe(res => {
+      this.loaderFlag = false;
       if (res != null) {
         this.toastr.success("Usuário atualizado com sucesso!");
         this.router.navigate(["/managers"]);
@@ -57,11 +60,18 @@ export class AddManagersComponent implements OnInit {
   editManager(userId) {
     this.loaderFlag = true;
     this.selectCompanyService.getByUserId(userId).subscribe(res => {
+
+      let bulist = []
+      if (res.data.manager.businessUnitIdList) {
+        for (let i = 0; i < res.data.manager.businessUnitIdList.length; i++) {
+          bulist.push(res.data.manager.businessUnitIdList[i].toString());
+        }
+      }
       let model = {
         "firstName": res.data.manager.firstName,
         "lastName": res.data.manager.lastName,
         "userName": res.data.manager.email,
-        "businessUnitId": res.data.manager.businessUnitId,
+        "businessUnitIdList": bulist,
         "password": res.data.manager.password,
         "confirmPassword": res.data.manager.password
 

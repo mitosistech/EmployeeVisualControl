@@ -42,16 +42,18 @@
                 <div class="mainContainer">
                   <div class="scContainer">
                     <div class="scBox">
-                      <h3>Selecionar empresa</h3>
+                      <!-- <h3>Selecionar empresa</h3> -->
                       <div class="selectCompany">
                         <!-- <select class="select-css" [(ngModel)]="managerModel.businessUnitId"
                           [ngModelOptions]="{standalone: true}">
                           <option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}</option>
                         </select> -->
                         <mat-form-field style="width:100%;">
-                          <mat-label>Toppings</mat-label>
-                          <mat-select  multiple>
-                            <mat-option  >Val</mat-option>
+                          <mat-label>Selecionar empresa</mat-label>
+                          <mat-select multiple [(ngModel)]="managerModel.businessUnitIdList"
+                            [ngModelOptions]="{standalone: true}">
+                            <mat-option *ngFor="let company of companyList;" value="{{company.id}}">{{company.name}}
+                            </mat-option>
                           </mat-select>
                         </mat-form-field>
                       </div>
