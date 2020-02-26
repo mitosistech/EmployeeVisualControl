@@ -5,6 +5,8 @@ import { ManagersRoutingModule, ManagersRoutingComponents } from './managers-rou
 import { AddManagersComponent } from './add-managers/add-managers.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModule,
     ManagersRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule
   ]
 })
 export class ManagersModule { }

@@ -8,6 +8,8 @@ import {  HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule ,
     ToastrModule.forRoot({ positionClass: 'inline' }),
     ToastContainerModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
