@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgotPassword', component: ForgetpasswordComponent },
   { path: 'resetPassword/:uniqueId', component: ResetpasswordComponent },
-  { path: 'selectCompany', component: SelectcompanyComponent }
+  { path: 'selectCompany/:userId', component: SelectcompanyComponent }
 ];
 
 @NgModule({

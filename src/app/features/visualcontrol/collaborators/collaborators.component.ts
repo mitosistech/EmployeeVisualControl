@@ -35,7 +35,10 @@ export class CollaboratorsComponent implements OnInit {
     }
     this.getCollaborators(customerId);
   }
-
+  routeToHome() {
+    let userId = localStorage.getItem("loginUserId");
+    this.router.navigate(["/selectCompany/" + userId]);
+  }
   navTolocation() {
     let businessid = localStorage.getItem("businessid");
     this.router.navigate(["/vc/home/" + businessid]);

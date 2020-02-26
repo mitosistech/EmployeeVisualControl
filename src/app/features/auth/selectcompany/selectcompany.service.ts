@@ -26,6 +26,16 @@ export class SelectcompanyService {
     );
   }
 
+
+
+  public getCompanyListByUserID(id): Observable<any> {
+    return this.http.get(this.apiURL + '/businessunits?userId=' + id, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
+
   public getByUserId(id): Observable<any> {
     return this.http.get(this.apiURL + '/managers/' + id, this.httpOptions).pipe(
       map((response) => {
@@ -51,4 +61,12 @@ export class SelectcompanyService {
       })
     );
   }
+  public getBusinessUnitCount(id): Observable<any> {
+    return this.http.get(this.apiURL + '/businessunits/' + id + '/collaborators/count', this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
+
 }

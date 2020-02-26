@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectcompanyService } from './selectcompany.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-selectcompany',
@@ -12,10 +13,11 @@ export class SelectcompanyComponent implements OnInit {
   public loaderFlag = false;
   public role: any;
   public businessid: any;
-  constructor(private service: SelectcompanyService, public router: Router) { }
+  constructor(private toastr: ToastrService, private service: SelectcompanyService, public router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getCompanyList();
+    let userId = this.route.snapshot.paramMap.get('userId');
+    this.getCompanyList(userId);
 
     let str = localStorage.getItem("role");
     if (str == "false") {
@@ -25,13 +27,13 @@ export class SelectcompanyComponent implements OnInit {
     }
   }
 
-  getCompanyList() {
+  getCompanyList(userId) {
     this.loaderFlag = true;
-    this.service.getCompanyList().subscribe(res => {
-      this.companyList = res[0].business_units;
+    this.service.getCompanyListByUserID(userId).subscribe(res => {
+      this.companyList = res.data.businessUnits;
       this.loaderFlag = false;
       // this.businessid = this.companyList[0].id;
-      // console.log(this.businessid);
+      console.log(this.companyList);
     });
 
   }
@@ -39,9 +41,18 @@ export class SelectcompanyComponent implements OnInit {
 
 
   selectCompany(businessid) {
+    this.loaderFlag = true;
     if (businessid) {
-      localStorage.setItem("businessid", businessid);
-      this.router.navigate(["/vc/home/" + businessid]);
+      //validate client count
+      this.service.getBusinessUnitCount(businessid).subscribe(res => {
+        this.loaderFlag = false;
+        if (res.data && res.data.collaboratorsCount && res.data.collaboratorsCount > 0) {
+          localStorage.setItem("businessid", businessid);
+          this.router.navigate(["/vc/home/" + businessid]);
+        } else {
+          this.toastr.error("Cliente indisponível nesta unidade de negócios");
+        }
+      });
     }
   }
 

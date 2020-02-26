@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   public role: any;
   public companyName: any;
   private removeIdList = [];
+
   ngOnInit() {
     let businessId = this.route.snapshot.paramMap.get('businessId');
     this.companyId = this.route.snapshot.paramMap.get('businessId');
@@ -29,6 +30,11 @@ export class HomeComponent implements OnInit {
     }
     this.getListOfLocationByBusinessId(businessId);
     // this.renderMap();
+  }
+
+  routeToHome() {
+    let userId = localStorage.getItem("loginUserId");
+    this.router.navigate(["/selectCompany/" + userId]);
   }
 
   getstate(st) {

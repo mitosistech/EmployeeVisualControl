@@ -27,7 +27,7 @@
   <div class="mainCont">
     <!--<h1>Controle visual do funcionário</h1>-->
     <h1>HEXA</h1>
-    <p><a *ngIf="role" [routerLink]="['/selectCompany']"> Home({{companyName}}) </a> ><span>Clientes por
+    <p><a *ngIf="role" (click)="routeToHome()"> Home({{companyName}}) </a> ><span>Clientes por
         localização</span>
     </p>
     <div class="contBox">

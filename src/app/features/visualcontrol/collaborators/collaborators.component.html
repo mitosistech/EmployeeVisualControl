@@ -127,8 +127,7 @@
   </div>
   <div class="mainCont">
     <h1>HEXA</h1>
-    <p><a *ngIf="role" [routerLink]="['/selectCompany']">Home({{companyName}})</a> > <a
-        (click)="navTolocation()">Clientes por
+    <p><a *ngIf="role" (click)="routeToHome()">Home({{companyName}})</a> > <a (click)="navTolocation()">Clientes por
         localização ({{stateCode}})</a> > <a (click)="navToClients()">clientes({{customerName}}) </a> >
       <span>Colaboradores</span></p>
     <div class="contBox">
@@ -146,7 +145,7 @@
         </thead>
         <tbody *ngIf="!norecordFound">
           <tr *ngFor="let collaborator of collaboratorsList;">
-            <td>{{collaborator.name}}, {{collaborator.phoneNo}}</td>
+            <td>{{collaborator.name}} {{collaborator.phoneNo}}</td>
             <td class="text-center">
               <span class="green" *ngIf="collaborator.statusCode==1||collaborator.statusCode==2"></span>
               <span class="red" *ngIf="collaborator.statusCode==3||collaborator.statusCode==7"></span>
@@ -160,7 +159,7 @@
               {{collaborator.responsiblePersonPhoneNo}})
             </td> -->
             <td>
-              {{collaborator.responsiblePersonName}}, {{collaborator.responsiblePersonPhoneNo}}
+              {{collaborator.responsiblePersonName}} {{collaborator.responsiblePersonPhoneNo}}
             </td>
           </tr>
           <!-- <tr>

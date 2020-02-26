@@ -31,14 +31,15 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("profileImg", result.data.imageUrl);
         localStorage.setItem("loginUserId", result.data.id);
         localStorage.setItem("role", result.data.superAdmin);
-        if (result.data.superAdmin) {
-          this.router.navigate(["/selectCompany"]);
-        } else {
-          this.router.navigate(["/vc/home/" + result.data.businessUnitId]);
-          // localStorage.setItem("companyName", result.employee_name);
+        this.router.navigate(["/selectCompany/" + result.data.id]);
+        // if (result.data.superAdmin) {
+        //   this.router.navigate(["/selectCompany"]);
+        // } else {
+        //   this.router.navigate(["/vc/home/" + result.data.businessUnitId]);
+        //   // localStorage.setItem("companyName", result.employee_name);
 
-          localStorage.setItem("businessid", result.data.businessUnitId);
-        }
+        //   localStorage.setItem("businessid", result.data.businessUnitId);
+        // }
       } else {
         this.toastr.error('falha no login, tente novamente');
       }

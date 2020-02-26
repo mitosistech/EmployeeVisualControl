@@ -32,6 +32,10 @@ export class ClientsComponent implements OnInit {
   navToClients() {
     this.router.navigate(["/vc/home/" + this.companyId]);
   }
+  routeToHome() {
+    let userId = localStorage.getItem("loginUserId");
+    this.router.navigate(["/selectCompany/" + userId]);
+  }
   getCustomerList() {
     this.loaderFlag = true;
     this.service.getCustomerList(this.companyId, this.stateCode).subscribe(res => {

@@ -10,7 +10,7 @@
       <a class="logout" title="Logout" [routerLink]="['/login']"><img src="./assets/images/logout.png" /></a>
     </div> -->
     <ul class="navBarList">
-      <li><a [routerLink]="['/selectCompany']">Home</a></li>
+      <li><a (click)="routeToHome()">Home</a></li>
       <li><a class="active" [routerLink]="['/managers']">Gerente</a></li>
     </ul>
     <!-- <div class="hLogo">

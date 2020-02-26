@@ -45,8 +45,9 @@ export class AddManagersComponent implements OnInit {
     });
   }
   getCompanyList() {
-    this.selectCompanyService.getCompanyList().subscribe(res => {
-      this.companyList = res[0].business_units;
+    let id = localStorage.getItem("loginUserId");
+    this.selectCompanyService.getCompanyListByUserID(id).subscribe(res => {
+      this.companyList = res.data.businessUnits;
       if (this.userId != 0) {
         this.editManager(this.userId);
       }
