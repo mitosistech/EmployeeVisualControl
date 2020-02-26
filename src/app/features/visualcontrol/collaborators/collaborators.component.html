@@ -109,18 +109,24 @@
     <div class="statusBox">
       <h4>Status</h4>
       <ul class="status">
-        <li><a class="green"><span></span>Em jornada/Intervalo</a></li>
+        <!--<li><a class="green"><span></span>Em jornada/Intervalo</a></li>
         <li><a class="red"><span></span>Ausente/Atrasado</a></li>
         <li><a class="yellow"><span></span>Em jornada extra/Trabalhando em dia de folga</a></li>
         <li><a class="gray"><span></span>Expediente encerrado/De folga</a></li>
-        <li><a class="black"><span></span>Não disponível</a></li>
+        <li><a class="black"><span></span>Não disponível</a></li>-->
+        <li><a class="green"><span></span>Em Jornada</a></li>
+        <li><a class="red"><span></span>Ausente</a></li>
+        <li><a class="orange"><span></span>Atrasado</a></li>
+        <li><a class="yellow"><span></span>H.Extra</a></li>
+        <li><a class="gray"><span></span>Fora Expediente</a></li>
+        <!--<li><a class="black"><span></span>Não disponível</a></li>-->
       </ul>
     </div>
 
 
   </div>
   <div class="mainCont">
-    <h1>Controle visual do funcionário</h1>
+    <h1>HEXA</h1>
     <p><a *ngIf="role" [routerLink]="['/selectCompany']">Home({{companyName}})</a> > <a
         (click)="navTolocation()">Clientes por
         localização ({{stateCode}})</a> > <a (click)="navToClients()">clientes({{customerName}}) </a> >
@@ -133,13 +139,14 @@
             <th>Nome do(a) Colaborador(a)</th>
             <th class="text-center">Alerta</th>
             <th>Status</th>
-            <th>Endereço</th>
+            <!--<th>Endereço</th>-->
+            <!--<th>Unidade</th>-->
             <th>Responsável</th>
           </tr>
         </thead>
         <tbody *ngIf="!norecordFound">
           <tr *ngFor="let collaborator of collaboratorsList;">
-            <td>{{collaborator.name}}</td>
+            <td>{{collaborator.name}}, {{collaborator.phoneNo}}</td>
             <td class="text-center">
               <span class="green" *ngIf="collaborator.statusCode==1||collaborator.statusCode==2"></span>
               <span class="red" *ngIf="collaborator.statusCode==3||collaborator.statusCode==7"></span>
@@ -147,13 +154,13 @@
               <span class="gray" *ngIf="collaborator.statusCode==5|| collaborator.statusCode==6"></span>
             </td>
             <td>{{collaborator.status}}</td>
-            <td>{{collaborator.address.stateName}}</td>
+            <!--<td>{{collaborator.address.stateName}}</td>-->
             <!-- <td>
               {{collaborator.resonsible}}({{collaborator.responsiblePersonName}} -
               {{collaborator.responsiblePersonPhoneNo}})
             </td> -->
             <td>
-              {{collaborator.responsiblePersonName}}
+              {{collaborator.responsiblePersonName}}, {{collaborator.responsiblePersonPhoneNo}}
             </td>
           </tr>
           <!-- <tr>

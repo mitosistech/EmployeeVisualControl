@@ -1,7 +1,7 @@
 export const AppConfig = {
     routes: { modules: '' },
     urls: {
-        base: 'http://localhost:8080',
+        base: 'http://204.27.60.26:8080/evc-api',
     }
 };
 
