@@ -50,7 +50,7 @@ export class SelectcompanyComponent implements OnInit {
           localStorage.setItem("businessid", businessid);
           this.router.navigate(["/vc/home/" + businessid]);
         } else {
-          this.toastr.error("Cliente indisponível nesta unidade de negócios");
+          this.toastr.error("Esta unidade de negócio não possui colaboradores ativos!");
         }
       });
     }

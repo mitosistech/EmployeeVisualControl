@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
             } else if (res.data.locations[i].status != null && (res.data.locations[i].status.code == 5 || res.data.locations[i].status.code == 6)) {
               svg.setAttribute("fill", "gray");
             } else {
-              svg.setAttribute("fill", "black");
+              //svg.setAttribute("fill", "black");
               // svg.removeAttribute("circle");
             }
             this.removeIdList.push(temp.trim());
