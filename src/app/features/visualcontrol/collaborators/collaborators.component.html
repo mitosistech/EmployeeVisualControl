@@ -136,9 +136,10 @@
         <thead>
           <tr>
             <th>Nome do(a) Colaborador(a)</th>
+            <th>Expedient</th>
             <th class="text-center">Alerta</th>
             <th>Status</th>
-            <!--<th>Endereço</th>-->
+            <!--<th>Expedient</th>-->
             <!--<th>Unidade</th>-->
             <th>Responsável</th>
           </tr>
@@ -146,6 +147,7 @@
         <tbody *ngIf="!norecordFound">
           <tr *ngFor="let collaborator of collaboratorsList;">
             <td>{{collaborator.name}} {{collaborator.phoneNo}}</td>
+            <td>{{collaborator.shiftName}}</td>
             <td class="text-center">
               <span class="green" *ngIf="collaborator.statusCode==1||collaborator.statusCode==2"></span>
               <span class="red" *ngIf="collaborator.statusCode==3||collaborator.statusCode==7"></span>
