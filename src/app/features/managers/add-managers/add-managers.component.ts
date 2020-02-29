@@ -39,10 +39,7 @@ export class AddManagersComponent implements OnInit {
     }
     this.loaderFlag = true;
 
-    if (this.userId != 0) {
-      data.password = null;
-      data.confirmPassword = null;
-    }
+
     this.service.createManager(data).subscribe(res => {
       this.loaderFlag = false;
       if (res != null) {
