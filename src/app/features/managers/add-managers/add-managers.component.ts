@@ -17,6 +17,7 @@ export class AddManagersComponent implements OnInit {
   public managerList = [];
   public editFlag = false;
   public loaderFlag = false;
+
   constructor(private route: ActivatedRoute, private service: VisualcontrolService, private toastr: ToastrService, public router: Router, private selectCompanyService: SelectcompanyService) { }
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get('userId');
@@ -37,6 +38,11 @@ export class AddManagersComponent implements OnInit {
       return;
     }
     this.loaderFlag = true;
+
+    if (this.userId != 0) {
+      data.password = null;
+      data.confirmPassword = null;
+    }
     this.service.createManager(data).subscribe(res => {
       this.loaderFlag = false;
       if (res != null) {
@@ -59,6 +65,7 @@ export class AddManagersComponent implements OnInit {
 
   editManager(userId) {
     this.loaderFlag = true;
+
     this.selectCompanyService.getByUserId(userId).subscribe(res => {
 
       let bulist = []
@@ -76,6 +83,7 @@ export class AddManagersComponent implements OnInit {
         "confirmPassword": res.data.manager.password
 
       }
+
       this.managerModel = model;
       this.loaderFlag = false;
     });
