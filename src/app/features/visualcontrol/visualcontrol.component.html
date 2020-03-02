@@ -12,7 +12,7 @@
     <div class="hLogo">
       <div class="comLogo">
         <div *ngIf="imgFlag">
-          <a><img src="{{logoURL}}" height="44" alt="logo" /></a>
+          <a><img src="{{logoURL}}"  alt="logo" /></a>
         </div>
         <span *ngIf="!imgFlag">{{businessUnitName}}</span>
 
@@ -36,7 +36,7 @@
 
         <a class="btn btn-primary dropdown-toggle proImgCont" data-toggle="dropdown">
 
-          <img src="{{profileImg}}" width="20" />
+          <img src="{{profileImg}}"  />
         </a>
         <div class="dropdown-menu  dropdown-menu-right">
           <form [formGroup]="uploadForm">

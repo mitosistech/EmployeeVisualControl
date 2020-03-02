@@ -31,13 +31,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width:36px;
-        height:36px;
+        width:40px;
+        height:40px;
         border-radius:50%;
         border:1px solid #6b9dfa;
         margin-left:10px;
         cursor:pointer;
         background: transparent;
+        padding: 0px !important;
+        overflow:hidden;
+        img{
+          max-width:90%;
+          max-height:90%;
+        }
       }
     }
   }
@@ -96,6 +102,19 @@ a.managerDet{
       cursor: pointer;
     }
     
+  }
+  a{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 90px;
+    overflow: hidden;
+
+    img{
+      max-width:100%;
+      max-height:100%;
+    }
   }
 }
 
