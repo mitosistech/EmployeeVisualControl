@@ -24,12 +24,23 @@
         <td>{{manager.lastName?manager.lastName:'NA'}}</td>
         <td>{{manager.email?manager.email:'NA'}}</td>
 
-        <td>{{manager.business?manager.business.name:'NA'}}</td>
         <td>
+          <h4 *ngFor="let bu of manager.businessUnitList">
+            {{bu.name}}&nbsp;&nbsp;
+          </h4>
+          <span *ngIf="manager.businessUnitList.length==0"> NA</span>
+        </td>
+        <!-- <td>
           <a class="editIcon" (click)="routeToEditManger(manager.id)" title="edit"><img
               src="./assets/images/svg/pencil.svg" width="20" /></a>
           <a *ngIf="!manager.superAdmin" title="Delete" (click)="deleteManager(manager.id)"><img
               src="./assets/images/svg/quit.svg" width="20" /></a>
+        </td> -->
+        <td>
+          <a class="editIcon" (click)="routeToEditManger(manager.id)" title="edit"><img
+              src="./assets/images/svg/pencil.svg" width="20" /></a>
+          <a *ngIf="!manager.superAdmin" title="Delete" (click)="deleteId=manager.id" data-toggle="modal"
+            data-target="#myModal"><img src="./assets/images/svg/quit.svg" width="20" /></a>
         </td>
       </tr>
 
@@ -42,4 +53,24 @@
 <div *ngIf="loaderFlag" class="app-loading" style="background-color:#FFFFFF; top:0px; position:absolute; width:100%; height:100%; display:flex; justify-content: center;
     align-items: center">
   <img src="assets/images/loader.gif" />
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+        Tem certeza de que deseja excluir?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteManager()">Ok</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
 </div>

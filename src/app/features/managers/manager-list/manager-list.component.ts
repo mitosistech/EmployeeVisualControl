@@ -13,6 +13,7 @@ export class ManagerListComponent implements OnInit {
   constructor(public router: Router, private service: SelectcompanyService, private toastr: ToastrService) { }
   public managerList = [];
   public loaderFlag = false;
+  public deleteId;
   ngOnInit() {
     this.getManagerList();
   }
@@ -35,8 +36,8 @@ export class ManagerListComponent implements OnInit {
     });
   }
 
-  deleteManager(id) {
-    this.service.deleteManager(id).subscribe(res => {
+  deleteManager() {
+    this.service.deleteManager(this.deleteId).subscribe(res => {
       if (res) {
         this.toastr.success("Gerente excluído com sucesso");
         this.getManagerList();
