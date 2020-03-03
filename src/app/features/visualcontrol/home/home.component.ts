@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
               svg.setAttribute("fill", "gray");
             } else {
               //svg.setAttribute("fill", "black");
-              // svg.removeAttribute("circle");
+              svg.removeAttribute("circle");
             }
             this.removeIdList.push(temp.trim());
           }

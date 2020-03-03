@@ -41,8 +41,9 @@ export class SelectcompanyComponent implements OnInit {
 
 
   selectCompany(businessid) {
-    this.loaderFlag = true;
+
     if (businessid) {
+      this.loaderFlag = true;
       //validate client count
       this.service.getBusinessUnitCount(businessid).subscribe(res => {
         this.loaderFlag = false;

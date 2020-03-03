@@ -17,7 +17,7 @@ export class AddManagersComponent implements OnInit {
   public managerList = [];
   public editFlag = false;
   public loaderFlag = false;
-
+  public role: any;
   constructor(private route: ActivatedRoute, private service: VisualcontrolService, private toastr: ToastrService, public router: Router, private selectCompanyService: SelectcompanyService) { }
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get('userId');
@@ -80,6 +80,13 @@ export class AddManagersComponent implements OnInit {
         "confirmPassword": res.data.manager.password
 
       }
+      this.role = res.data.manager.superAdmin
+
+      // if (str == "false") {
+      //   this.role = false;
+      // } else {
+      //   this.role = true;
+      // }
 
       this.managerModel = model;
       this.loaderFlag = false;
