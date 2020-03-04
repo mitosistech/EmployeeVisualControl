@@ -20,7 +20,7 @@ export class ForgetpasswordComponent implements OnInit {
     this.service.verifyMail(null, userName).subscribe(res => {
       this.loaderFlag = false;
       let result = JSON.parse(res);
-      this.toastr.success("Link sent your mail..! Please check it");
+      this.toastr.success("Foi enviado um e-mail para você reiniciar sua senha!");
       this.router.navigate(['/login']);
     });
   }
