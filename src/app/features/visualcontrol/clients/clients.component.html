@@ -140,8 +140,8 @@
           </tr>
         </thead>
         <tbody *ngIf="!norecordFound">
-          <tr *ngFor="let customer of customerList;">
-            <td *ngIf="customer.statusList.length!=0" (click)="routeToCollabratorPage(customer.id,customer.name)">
+          <tr *ngFor="let customer of customerList;" (click)="routeToCollabratorPage(customer.id,customer.name)">
+            <td *ngIf="customer.statusList.length!=0">
               {{customer.name}}</td>
             <td *ngIf="customer.statusList.length!=0" class="text-center">
               <div *ngFor="let status of customer.statusList;">

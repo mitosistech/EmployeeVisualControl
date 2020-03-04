@@ -35,7 +35,10 @@ export class ResetpasswordComponent implements OnInit {
       //let result = JSON.parse(res);
       this.loaderFlag = false;
       if (res) {
+        this.toastr.success("redefinição de senha com sucesso");
         this.router.navigate(["/login"]);
+      } else {
+        this.toastr.error("falha na redefinição de senha");
       }
 
     });

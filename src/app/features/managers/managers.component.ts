@@ -16,4 +16,8 @@ export class ManagersComponent implements OnInit {
   routeToHome() {
     this.router.navigate(["/selectCompany/" + this.userId]);
   }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(["/login"]);
+  }
 }

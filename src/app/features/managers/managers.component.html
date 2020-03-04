@@ -12,6 +12,9 @@
     <ul class="navBarList">
       <li><a (click)="routeToHome()">Home</a></li>
       <li><a class="active" [routerLink]="['/managers']">Gerente</a></li>
+
+      <a class="logoutMenu" title="Logout" (click)="logout()"><img src="./assets/images/logout.png" width="16"
+          alt="logout" /> &nbsp;Sair</a>
     </ul>
     <!-- <div class="hLogo">
       <a class="proName">Paulo</a>
