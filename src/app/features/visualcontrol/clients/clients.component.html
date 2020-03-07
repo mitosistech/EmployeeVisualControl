@@ -160,7 +160,7 @@
                 <p>Não disponível</p>
               </div>
             </td>
-            <td *ngIf="customer.statusList.length!=0">{{customer.address.stateName}}</td>
+            <td *ngIf="customer.statusList.length!=0">{{customer.address?customer.address.stateName:'NA'}}</td>
           </tr>
 
           <!-- <tr>
