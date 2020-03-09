@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit {
         //  this.visualcontrolComponent.setCompanyLogo(res.data.business.name, res.data.business.logoSmallUrl);
         this.companyName = res.data.business.name;
         localStorage.setItem("companyName", this.companyName);
+
         for (let i = 0; i < res.data.locations.length; i++) {
 
           if (res.data.locations[i].address.stateId) {

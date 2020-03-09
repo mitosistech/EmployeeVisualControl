@@ -51,7 +51,7 @@ export class CollaboratorsComponent implements OnInit {
 
   getCollaborators(customerId) {
     this.loaderFlag = true;
-    this.service.getCollaborators(customerId).subscribe(res => {
+    this.service.getCollaborators(customerId, this.stateCode).subscribe(res => {
       this.loaderFlag = false;
       if (res != null) {
         this.customer = res.data.customer;

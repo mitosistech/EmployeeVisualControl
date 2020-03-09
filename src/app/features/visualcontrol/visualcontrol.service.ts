@@ -39,8 +39,8 @@ export class VisualcontrolService {
       })
     );
   }
-  public getCollaborators(customerId): Observable<any> {
-    return this.http.get(this.apiURL + '/customers/' + customerId + '/collaborators', this.httpOptions).pipe(
+  public getCollaborators(customerId, stateCode): Observable<any> {
+    return this.http.get(this.apiURL + '/customers/' + customerId + '/collaborators?stateId=' + stateCode, this.httpOptions).pipe(
       map((response) => {
         return response;
       })
