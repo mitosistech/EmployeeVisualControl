@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule, AuthRoutingComponents } from './auth-routing.module';
 import { SelectcompanyComponent } from './selectcompany/selectcompany.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 
 
@@ -14,6 +14,8 @@ import { ToastrService, ToastrModule } from 'ngx-toastr';
     CommonModule,
     AuthRoutingModule,
     FormsModule,
+
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
