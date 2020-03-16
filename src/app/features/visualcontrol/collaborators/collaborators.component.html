@@ -137,9 +137,9 @@
           <tr>
             <th>Nome do(a) Colaborador(a)</th>
             <th>Expediente</th>
-            <th class="text-center">Alerta</th>
             <th>Início</th>
             <th>Término</th>
+            <th class="text-center">Alerta</th>
             <th>Status</th>
             <!--<th>Expedient</th>-->
             <!--<th>Unidade</th>-->
@@ -150,14 +150,15 @@
           <tr *ngFor="let collaborator of collaboratorsList;">
             <td>{{collaborator.name}} {{collaborator.phoneNo}}</td>
             <td>{{collaborator.shiftName}}</td>
+            <td>{{collaborator.timeCardStartTime?collaborator.timeCardStartTime:'NA'}}</td>
+            <td>{{collaborator.timeCardEndTime?collaborator.timeCardEndTime:'NA'}}</td>
             <td class="text-center">
               <span class="green" *ngIf="collaborator.statusCode==1||collaborator.statusCode==2"></span>
               <span class="red" *ngIf="collaborator.statusCode==3||collaborator.statusCode==7"></span>
               <span class="yellow" *ngIf="collaborator.statusCode==4|| collaborator.statusCode==8"></span>
               <span class="gray" *ngIf="collaborator.statusCode==5|| collaborator.statusCode==6"></span>
             </td>
-            <td>{{collaborator.timeCardStartTime?collaborator.timeCardStartTime:'NA'}}</td>
-            <td>{{collaborator.timeCardEndTime?collaborator.timeCardEndTime:'NA'}}</td>
+
             <td>{{collaborator.status}}</td>
             <!--<td>{{collaborator.address.stateName}}</td>-->
             <!-- <td>
