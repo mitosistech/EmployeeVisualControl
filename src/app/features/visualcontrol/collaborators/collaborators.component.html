@@ -138,6 +138,8 @@
             <th>Nome do(a) Colaborador(a)</th>
             <th>Expediente</th>
             <th class="text-center">Alerta</th>
+            <th>Início</th>
+            <th>Término</th>
             <th>Status</th>
             <!--<th>Expedient</th>-->
             <!--<th>Unidade</th>-->
@@ -154,6 +156,8 @@
               <span class="yellow" *ngIf="collaborator.statusCode==4|| collaborator.statusCode==8"></span>
               <span class="gray" *ngIf="collaborator.statusCode==5|| collaborator.statusCode==6"></span>
             </td>
+            <td>{{collaborator.timeCardStartTime?collaborator.timeCardStartTime:'NA'}}</td>
+            <td>{{collaborator.timeCardEndTime?collaborator.timeCardEndTime:'NA'}}</td>
             <td>{{collaborator.status}}</td>
             <!--<td>{{collaborator.address.stateName}}</td>-->
             <!-- <td>
@@ -162,6 +166,7 @@
             </td> -->
             <td>
               {{collaborator.responsiblePersonName}} {{collaborator.responsiblePersonPhoneNo}}
+              {{collaborator.responsiblePersonName&&collaborator.responsiblePersonPhoneNo?'':'NA'}}
             </td>
           </tr>
           <!-- <tr>
